@@ -4,8 +4,10 @@ package View;
 public class App {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		GridsizeMenu menu = new GridsizeMenu();
+		String name = menu.askPlayerName();
+		int size = menu.getGridSize();
+		Board board = new Board(size,name);
 	}
 
 }
