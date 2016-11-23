@@ -14,6 +14,8 @@ public class BattleshipGame {
 		player1 = playerA;
 		player2 = playerB;
 		frame = new BoardFrame(10, buttonsize -> new BattleshipBoardCell(this, buttonsize));
+		frame.setLeftName(player1.getName());
+		frame.setRightName(player2.getName());
 	}
 
 	public BattleshipGame(Player player) {
