@@ -3,25 +3,33 @@ package view;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class BoardFrame extends JFrame {
 
-	private static final long serialVersionUID = 8506260212595300722L;
+	private static final long	serialVersionUID	= 8506260212595300722L;
 
-	public BoardFrame(int gridSize, String name) {
+	public final BoardPanel		left, right;
+
+	public BoardFrame(int gridSize, BoardCellFactory factory) {
 		super("Battleship");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JPanel west = new BoardPanel(name, gridSize);
-		JPanel east = new BoardPanel("Computer", gridSize);
+		left = new BoardPanel("Player", gridSize, factory);
+		right = new BoardPanel("Computer", gridSize, factory);
 		setLayout(new BorderLayout());
-		add(west, BorderLayout.LINE_START);
-		add(east, BorderLayout.LINE_END);
+		add(left, BorderLayout.LINE_START);
+		add(right, BorderLayout.LINE_END);
 		setVisible(true);
 		validate();
 		pack();
 		setMinimumSize(getSize());
+	}
+
+	public void setLeftName(String name) {
+		left.setName(name);
+	}
+
+	public void setRightName(String name) {
+		right.setName(name);
 	}
 
 	/**

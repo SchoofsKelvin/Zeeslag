@@ -11,15 +11,17 @@ public class BoardPanel extends JPanel {
 
 	private static final long	serialVersionUID	= 1L;
 
-	private BoardCell[][]		cells;
 	private static final int	buttonSize			= 50;
 
-	BoardPanel(String name, int gridSize) {
+	private final BoardCell[][]	cells;
+	private final JLabel		nametag;
+
+	BoardPanel(String name, int gridSize, BoardCellFactory factory) {
 		cells = new BoardCell[gridSize][gridSize];
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
-		JLabel nametag = new JLabel(name);
+		nametag = new JLabel(name);
 		add(nametag, c);
 		c.weightx = 1 / gridSize;
 		c.weighty = 1 / (gridSize + 1);
@@ -27,13 +29,24 @@ public class BoardPanel extends JPanel {
 		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		for (int x = 0; x < gridSize; x++) {
 			for (int y = 0; y < gridSize; y++) {
-				BoardCell b = new BoardCell(buttonSize);
+				BoardCell b = factory.createCell(buttonSize);
 				cells[x][y] = b;
 				c.gridy = y + 1;
 				add(b, c);
 			}
 		}
 		validate();
+	}
+
+	public BoardCell getCell(int x, int y) {
+		if (x < 0 || x >= cells.length) throw new IllegalArgumentException("Invalid X");
+		if (y < 0 || y >= cells.length) throw new IllegalArgumentException("Invalid Y");
+		return cells[x][y];
+	}
+
+	@Override
+	public void setName(String name) {
+		nametag.setText(name);
 	}
 
 }

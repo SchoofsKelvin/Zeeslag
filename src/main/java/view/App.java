@@ -1,5 +1,7 @@
 package view;
 
+import model.Player;
+import model.battleship.BattleshipGame;
 
 public class App {
 
@@ -7,7 +9,8 @@ public class App {
 		GridsizeMenu menu = new GridsizeMenu();
 		String name = menu.askPlayerName();
 		int size = menu.getGridSize();
-		BoardFrame board = new BoardFrame(size,name);
+		// BoardFrame board = new BoardFrame(size,name);
+		BattleshipGame game = new BattleshipGame(new Player(name));
 	}
 
 }
