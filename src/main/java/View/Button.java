@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,29 +9,34 @@ import javax.swing.JButton;
 
 public class Button extends JButton implements ActionListener {
 
-	private static final long serialVersionUID = 1L;
-	private ImageIcon X, O;
-	int a = 0;
+	private static final long	serialVersionUID	= 1L;
+	private ImageIcon			X, O;
+	int							a					= 0;
 
-	public Button() {
-		X = new ImageIcon(("images/x.png"));
-		O = new ImageIcon(("images/o.png"));
+	public Button(int size) {
+		X = new ImageIcon("images/x.png");
+		O = new ImageIcon("images/o.png");
 		addActionListener(this);
+		Dimension dim = new Dimension(size, size);
+		setMinimumSize(dim);
+		setMaximumSize(dim);
+		setPreferredSize(dim);
+		setSize(dim);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		a++;
+		a = ++a % 3;
 		switch (a) {
-		case 0:
-			setIcon(null);
-			break;
-		case 1:
-			setIcon(X);
-			break;
-		case 2:
-			setIcon(O);
-			break;
+			case 0:
+				setIcon(null);
+				break;
+			case 1:
+				setIcon(X);
+				break;
+			case 2:
+				setIcon(O);
+				break;
 		}
 	}
 	/**
