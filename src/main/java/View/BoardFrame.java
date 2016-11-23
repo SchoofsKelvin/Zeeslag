@@ -10,13 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Board extends JFrame {
+public class BoardFrame extends JFrame {
 
 	private static final long	serialVersionUID	= 8506260212595300722L;
-	private List<Button>		buttons;
+	private List<BoardCell>		buttons;
 	private static final int	buttonSize			= 50;
 
-	public Board(int gridSize, String name) {
+	public BoardFrame(int gridSize, String name) {
 		super("Battleship");
 		// setSize(new Dimension(800, 400));
 		setResizable(false);
@@ -48,7 +48,7 @@ public class Board extends JFrame {
 		panel.setSize(gridSize * buttonSize, gridSize * buttonSize);
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		for (int i = 0; i < gridSize * gridSize; i++) {
-			Button b = new Button(buttonSize);
+			BoardCell b = new BoardCell(buttonSize);
 			buttons.add(b);
 			panel.add(b);
 		}

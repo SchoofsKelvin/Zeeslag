@@ -7,7 +7,7 @@ public class App {
 		GridsizeMenu menu = new GridsizeMenu();
 		String name = menu.askPlayerName();
 		int size = menu.getGridSize();
-		Board board = new Board(size,name);
+		BoardFrame board = new BoardFrame(size,name);
 	}
 
 }

@@ -7,13 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class Button extends JButton implements ActionListener {
+public class BoardCell extends JButton implements ActionListener {
 
 	private static final long	serialVersionUID	= 1L;
 	private ImageIcon			X, O;
 	int							a					= 0;
 
-	public Button(int size) {
+	public BoardCell(int size) {
 		X = new ImageIcon("images/x.png");
 		O = new ImageIcon("images/o.png");
 		addActionListener(this);
