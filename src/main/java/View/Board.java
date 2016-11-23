@@ -1,6 +1,8 @@
 package View;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,35 +10,45 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class Board extends JFrame {
 
 	private static final long serialVersionUID = 8506260212595300722L;
-	private List<Button> button = new ArrayList<>();
-	private JPanel panel = new JPanel();
-	private JPanel headerPanel = new JPanel();
+	private List<Button> buttons = new ArrayList<>();
+	private JPanel main = new JPanel();
 
 	public Board(int gridSize, String name) {
 		super("Battleship");
-		setSize(new Dimension(400, 400));
+		setSize(new Dimension(800, 400));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// TODO add the name of the player and computer jlabel to the panel
-		JLabel computer = new JLabel("Computer");
-		JTextField player1 = new JTextField(name);
-		// TODO 
-		createGrid(gridSize);
-		setContentPane(panel);
+		JLabel player1 = new JLabel(name);
+		JLabel player2 = new JLabel("Computer");
+		
+		JPanel header = new JPanel();
+		header.setLayout(new FlowLayout());
+		header.add(player1);
+		header.add(player2);
+
+		JPanel west = createGrid(gridSize);
+		JPanel east = createGrid(gridSize);
+		main.setLayout(new BorderLayout());
+		main.add(west, BorderLayout.LINE_START);
+		main.add(east, BorderLayout.LINE_END);
+		main.add(header, BorderLayout.PAGE_START);
+		this.add(main);
 		setVisible(true);
 	}
 	
-	public void createGrid(int gridSize){
+	public JPanel createGrid(int gridSize){
+		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(gridSize, gridSize));
 		for (int i = 0; i < (gridSize * gridSize); i++) {
-			button.add(new Button());
-			panel.add(button.get(i));
+			Button b = new Button();
+			buttons.add(b);
+			panel.add(b);
 		}
+		return panel;
 	}
 	
 
