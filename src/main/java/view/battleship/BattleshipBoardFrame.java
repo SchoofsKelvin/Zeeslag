@@ -7,8 +7,9 @@ public final class BattleshipBoardFrame extends BoardFrame {
 
 	private ShipPickerPanel picker;
 
-	public BattleshipBoardFrame(int gridSize, BoardCellFactory factory) {
-		super(gridSize, factory);
+	public BattleshipBoardFrame(int gridSize, BoardCellFactory factory1,
+		BoardCellFactory factory2) {
+		super(gridSize, factory1, factory2);
 	}
 
 	@Override

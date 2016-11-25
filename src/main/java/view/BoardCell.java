@@ -4,18 +4,24 @@ import java.awt.Dimension;
 
 import javax.swing.JButton;
 
+import exception.DomainException;
+
 public class BoardCell extends JButton {
 
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
-	public BoardCell(int size) {
+	public final int			x, y;
+
+	public BoardCell(int x, int y, int size) {
 		Dimension dim = new Dimension(size, size);
 		setMinimumSize(dim);
 		setMaximumSize(dim);
 		setPreferredSize(dim);
 		setSize(dim);
+		this.x = x;
+		this.y = y;
 	}
 
-	public void updateCell() {}
+	public void updateCell() throws DomainException {}
 
 }
