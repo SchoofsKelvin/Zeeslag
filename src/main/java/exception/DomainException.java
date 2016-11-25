@@ -1,16 +1,18 @@
 package exception;
 
-public class DomainException extends Exception {
+public class DomainException extends RuntimeException {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5327277827698208920L;
-	
-	public DomainException(){
+
+	public DomainException() {
 		super();
 	}
-	public DomainException(String message){
+
+	public DomainException(String message) {
 		super(message);
 	}
-	
+
 }
