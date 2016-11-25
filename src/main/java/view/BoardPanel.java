@@ -33,7 +33,7 @@ public class BoardPanel extends JPanel {
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		for (int x = 0; x < gridSize; x++) {
 			for (int y = 0; y < gridSize; y++) {
-				BoardCell b = factory.createCell(buttonSize);
+				BoardCell b = factory.createCell(x, y, buttonSize);
 				cells[x][y] = b;
 				c.gridy = y + 1;
 				holder.add(b, c);
@@ -51,6 +51,11 @@ public class BoardPanel extends JPanel {
 	@Override
 	public void setName(String name) {
 		nametag.setText(name);
+	}
+
+	public void updateCell(int x, int y) throws DomainException {
+		BoardCell cell = getCell(x, y);
+		cell.updateCell();
 	}
 
 }
