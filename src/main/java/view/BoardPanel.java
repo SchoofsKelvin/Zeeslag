@@ -11,20 +11,22 @@ import exception.DomainException;
 
 public class BoardPanel extends JPanel {
 
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
-	private static final int buttonSize = 50;
+	private static final int	buttonSize			= 30;
 
-	private final BoardCell[][] cells;
-	private final JLabel nametag;
+	private final BoardCell[][]	cells;
+	private final JLabel		nametag;
 
 	public BoardPanel(String name, int gridSize, BoardCellFactory factory) {
 		cells = new BoardCell[gridSize][gridSize];
-		setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
 		nametag = new JLabel(name);
-		add(nametag, c);
+		setLayout(new GridBagLayout());
+		add(nametag);
+		JPanel holder = new JPanel();
+		add(holder);
+		holder.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
 		c.weightx = 1 / gridSize;
 		c.weighty = 1 / (gridSize + 1);
 		setSize(gridSize * buttonSize, gridSize * buttonSize);
@@ -34,17 +36,15 @@ public class BoardPanel extends JPanel {
 				BoardCell b = factory.createCell(buttonSize);
 				cells[x][y] = b;
 				c.gridy = y + 1;
-				add(b, c);
+				holder.add(b, c);
 			}
 		}
 		validate();
 	}
 
 	public BoardCell getCell(int x, int y) throws DomainException {
-		if (x < 0 || x >= cells.length)
-			throw new DomainException("Invalid X");
-		if (y < 0 || y >= cells.length)
-			throw new DomainException("Invalid Y");
+		if (x < 0 || x >= cells.length) throw new DomainException("Invalid X");
+		if (y < 0 || y >= cells.length) throw new DomainException("Invalid Y");
 		return cells[x][y];
 	}
 

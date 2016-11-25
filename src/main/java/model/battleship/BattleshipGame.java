@@ -4,6 +4,7 @@ import exception.DomainException;
 import model.Player;
 import view.BoardFrame;
 import view.battleship.BattleshipBoardCell;
+import view.battleship.BattleshipBoardFrame;
 
 public class BattleshipGame {
 
@@ -14,7 +15,8 @@ public class BattleshipGame {
 	public BattleshipGame(Player player) throws DomainException {
 		this.player1 = player;
 		this.player2 = new AI();
-		frame = new BoardFrame(10, buttonsize -> new BattleshipBoardCell(this, buttonsize));
+		frame = new BattleshipBoardFrame(10,
+			buttonsize -> new BattleshipBoardCell(this, buttonsize));
 		frame.setLeftName(player1.getName());
 		frame.setRightName(player2.getName());
 	}

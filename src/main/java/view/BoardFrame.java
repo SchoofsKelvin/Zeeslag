@@ -1,31 +1,34 @@
 package view;
 
-import java.awt.BorderLayout;
+import java.awt.GridBagLayout;
 
 import javax.swing.JFrame;
 
 public class BoardFrame extends JFrame {
 
-	private static final long serialVersionUID = 8506260212595300722L;
+	private static final long	serialVersionUID	= 8506260212595300722L;
 
-	public final BoardPanel left, right;
-	private SidePanel center;
+	public final BoardPanel		left, right;
 
 	public BoardFrame(int gridSize, BoardCellFactory factory) {
 		super("Battleship");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		left = new BoardPanel("Player", gridSize, factory);
 		right = new BoardPanel("Computer", gridSize, factory);
-		center = new SidePanel();
-		setLayout(new BorderLayout());
-		add(left, BorderLayout.LINE_START);
-		add(center,BorderLayout.BEFORE_FIRST_LINE);
-		add(right, BorderLayout.LINE_END);
+		setLayout(new GridBagLayout());
+		addExtraFirst();
+		add(left);
+		add(right);
+		addExtraLast();
 		setVisible(true);
 		validate();
 		pack();
 		setMinimumSize(getSize());
 	}
+
+	protected void addExtraLast() {}
+
+	protected void addExtraFirst() {}
 
 	public void setLeftName(String name) {
 		left.setName(name);
