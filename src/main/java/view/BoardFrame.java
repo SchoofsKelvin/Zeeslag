@@ -10,11 +10,11 @@ public class BoardFrame extends JFrame {
 
 	public final BoardPanel		left, right;
 
-	public BoardFrame(int gridSize, BoardCellFactory factory) {
+	public BoardFrame(int gridSize, BoardCellFactory factory1, BoardCellFactory factory2) {
 		super("Battleship");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		left = new BoardPanel("Player", gridSize, factory);
-		right = new BoardPanel("Computer", gridSize, factory);
+		left = new BoardPanel("Player", gridSize, factory1);
+		right = new BoardPanel("Computer", gridSize, factory2);
 		setLayout(new GridBagLayout());
 		addExtraFirst();
 		add(left);
@@ -24,6 +24,10 @@ public class BoardFrame extends JFrame {
 		validate();
 		pack();
 		setMinimumSize(getSize());
+	}
+
+	public BoardFrame(int gridSize, BoardCellFactory factory) {
+		this(gridSize, factory, factory);
 	}
 
 	protected void addExtraLast() {}
