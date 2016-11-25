@@ -9,14 +9,17 @@ public class BoardFrame extends JFrame {
 	private static final long serialVersionUID = 8506260212595300722L;
 
 	public final BoardPanel left, right;
+	private SidePanel center;
 
 	public BoardFrame(int gridSize, BoardCellFactory factory) {
 		super("Battleship");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		left = new BoardPanel("Player", gridSize, factory);
 		right = new BoardPanel("Computer", gridSize, factory);
+		center = new SidePanel();
 		setLayout(new BorderLayout());
 		add(left, BorderLayout.LINE_START);
+		add(center,BorderLayout.BEFORE_FIRST_LINE);
 		add(right, BorderLayout.LINE_END);
 		setVisible(true);
 		validate();

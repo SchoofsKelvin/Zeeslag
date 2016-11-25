@@ -2,6 +2,7 @@ package view;
 
 import model.Player;
 import model.battleship.BattleshipGame;
+import model.battleship.Boat;
 
 public class App {
 
@@ -13,6 +14,6 @@ public class App {
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-	}
+			}
 
 }
