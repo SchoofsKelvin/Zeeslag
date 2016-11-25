@@ -17,7 +17,7 @@ public class GridsizeMenu {
 
 	public String askPlayerName() {
 		String name = "";
-		while (name.trim().isEmpty() || name.length() < 3) {
+		while (name.trim().isEmpty() || name.length() < 3||name.length()>9) {
 			name = JOptionPane.showInputDialog(null, "What is your name?");
 		}
 		return name;
