@@ -7,6 +7,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import exception.DomainException;
+
 public class BoardPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -26,7 +28,7 @@ public class BoardPanel extends JPanel {
 		c.weightx = 1 / gridSize;
 		c.weighty = 1 / (gridSize + 1);
 		setSize(gridSize * buttonSize, gridSize * buttonSize);
-		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		for (int x = 0; x < gridSize; x++) {
 			for (int y = 0; y < gridSize; y++) {
 				BoardCell b = factory.createCell(buttonSize);
@@ -38,11 +40,11 @@ public class BoardPanel extends JPanel {
 		validate();
 	}
 
-	public BoardCell getCell(int x, int y) {
+	public BoardCell getCell(int x, int y) throws DomainException {
 		if (x < 0 || x >= cells.length)
-			throw new IllegalArgumentException("Invalid X");
+			throw new DomainException("Invalid X");
 		if (y < 0 || y >= cells.length)
-			throw new IllegalArgumentException("Invalid Y");
+			throw new DomainException("Invalid Y");
 		return cells[x][y];
 	}
 

@@ -7,20 +7,20 @@ import view.battleship.BattleshipBoardCell;
 
 public class BattleshipGame {
 
-	private final Player player1, player2;
+	private Player player1, player2;
 
 	private BoardFrame frame;
 
-	public BattleshipGame(Player playerA, Player playerB) {
-		player1 = playerA;
-		player2 = playerB;
+	public BattleshipGame(Player player) throws DomainException {
+		this.player1 = player;
+		this.player2 = new AI();
+		this.BattleshipGames();
+	}
+
+	public void BattleshipGames() {
 		frame = new BoardFrame(10, buttonsize -> new BattleshipBoardCell(this, buttonsize));
 		frame.setLeftName(player1.getName());
 		frame.setRightName(player2.getName());
-	}
-
-	public BattleshipGame(Player player) throws DomainException {
-		this(player, new AI());
 	}
 
 }
