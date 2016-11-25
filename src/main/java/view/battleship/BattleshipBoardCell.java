@@ -17,13 +17,14 @@ public class BattleshipBoardCell extends BoardCell implements ActionListener {
 	public static final ImageIcon	X					= new ImageIcon("images/x.png");
 	public static final ImageIcon	O					= new ImageIcon("images/o.png");
 
-	private int						a					= 0;
-
 	public final BattleshipBoard	board;
 
-	public BattleshipBoardCell(int x, int y, int size, BattleshipBoard board) {
+	private boolean					other;
+
+	public BattleshipBoardCell(int x, int y, int size, BattleshipBoard board, boolean other) {
 		super(x, y, size);
 		this.board = board;
+		this.other = other;
 		addActionListener(this);
 		setColor(CellColor.Empty);
 	}
@@ -40,21 +41,7 @@ public class BattleshipBoardCell extends BoardCell implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		a = ++a % 4;
-		switch (a) {
-			case 0:
-				setColor(CellColor.Empty);
-				break;
-			case 1:
-				setColor(CellColor.Boat);
-				break;
-			case 2:
-				setColor(CellColor.Hit);
-				break;
-			case 3:
-				setColor(CellColor.Shot);
-				break;
-		}
+		board.clickedCell(x, y, other);
 	}
 
 	public void setColor(CellColor c) {

@@ -18,6 +18,10 @@ public final class BattleshipBoardFrame extends BoardFrame {
 		add(picker);
 	}
 
+	public ShipPickerPanel getShipPicker() {
+		return picker;
+	}
+
 	private static final long serialVersionUID = -2458982237956517265L;
 
 }

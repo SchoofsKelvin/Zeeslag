@@ -15,6 +15,7 @@ public class ShipPickerPanel extends JPanel {
 	private ArrayList<Boat>		boats				= new ArrayList<>();
 
 	private ButtonGroup			buttongroup;
+	private JRadioButton		horizontal, vertical;
 
 	public ShipPickerPanel() {
 		setLayout(new GridLayout(2, 1));
@@ -35,12 +36,10 @@ public class ShipPickerPanel extends JPanel {
 		direction.add(buttons);
 
 		buttongroup = new ButtonGroup();
-		JRadioButton hor = new JRadioButton("Horizontal");
-		JRadioButton ver = new JRadioButton("Vertical");
-		buttongroup.add(hor);
-		buttongroup.add(ver);
-		direction.add(hor);
-		direction.add(ver);
+		buttongroup.add(horizontal = new JRadioButton("Horizontal"));
+		buttongroup.add(vertical = new JRadioButton("Vertical"));
+		direction.add(horizontal);
+		direction.add(vertical);
 	}
 
 	public void reset() {
@@ -54,5 +53,17 @@ public class ShipPickerPanel extends JPanel {
 	public void removeBoat(Boat boat) {
 		boats.remove(boat);
 		box.setModel(new DefaultComboBoxModel<>(boats.toArray(new Boat[boats.size()])));
+	}
+
+	public Boat getBoat() {
+		return (Boat) box.getSelectedItem();
+	}
+
+	public boolean isFinished() {
+		return boats.size() == 0;
+	}
+
+	public boolean rotationIsHorizontal() {
+		return horizontal.isSelected();
 	}
 }
