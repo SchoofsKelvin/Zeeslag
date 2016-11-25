@@ -24,6 +24,6 @@ public class GridsizeMenu {
 	}
 
 	/**
-	 * By Surendra Sapkota: this class is used to create a scroll menu!
+	 *  this class is used to create a scroll menu!
 	 */
 }

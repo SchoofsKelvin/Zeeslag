@@ -9,14 +9,14 @@ import javax.swing.JPanel;
 
 public class BoardPanel extends JPanel {
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	private static final int	buttonSize			= 50;
+	private static final int buttonSize = 50;
 
-	private final BoardCell[][]	cells;
-	private final JLabel		nametag;
+	private final BoardCell[][] cells;
+	private final JLabel nametag;
 
-	BoardPanel(String name, int gridSize, BoardCellFactory factory) {
+	public BoardPanel(String name, int gridSize, BoardCellFactory factory) {
 		cells = new BoardCell[gridSize][gridSize];
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -39,8 +39,10 @@ public class BoardPanel extends JPanel {
 	}
 
 	public BoardCell getCell(int x, int y) {
-		if (x < 0 || x >= cells.length) throw new IllegalArgumentException("Invalid X");
-		if (y < 0 || y >= cells.length) throw new IllegalArgumentException("Invalid Y");
+		if (x < 0 || x >= cells.length)
+			throw new IllegalArgumentException("Invalid X");
+		if (y < 0 || y >= cells.length)
+			throw new IllegalArgumentException("Invalid Y");
 		return cells[x][y];
 	}
 
