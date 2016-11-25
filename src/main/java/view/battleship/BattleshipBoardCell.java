@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 
-import model.battleship.BattleshipGame;
+import model.battleship.BattleshipBoard;
 import view.BoardCell;
 
 public class BattleshipBoardCell extends BoardCell implements ActionListener {
@@ -17,13 +17,19 @@ public class BattleshipBoardCell extends BoardCell implements ActionListener {
 
 	private int						a					= 0;
 
-	public final BattleshipGame		game;
+	public final BattleshipBoard	board;
 
-	public BattleshipBoardCell(BattleshipGame game, int size) {
+	public BattleshipBoardCell(BattleshipBoard board, int size) {
 		super(size);
-		this.game = game;
+		this.board = board;
 		addActionListener(this);
 		setColor(CellColor.Empty);
+	}
+
+	@Override
+	public void updateCell() {
+		// TODO Auto-generated method stub
+		super.updateCell();
 	}
 
 	@Override

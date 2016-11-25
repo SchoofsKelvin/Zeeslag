@@ -16,4 +16,6 @@ public class BoardCell extends JButton {
 		setSize(dim);
 	}
 
+	public void updateCell() {}
+
 }
