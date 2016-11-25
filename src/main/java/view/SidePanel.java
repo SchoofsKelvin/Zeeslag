@@ -10,13 +10,18 @@ import model.battleship.Boat;
 
 public class SidePanel extends JPanel {
 	private JLabel nametag;
-	private String boat[] = { Boat.AircraftCarrier + "(" + Boat.AircraftCarrier.length + ")",
-			Boat.Battleship + "(" + Boat.Battleship.length + ")", Boat.Submarine + "(" + Boat.Submarine.length + ")",
-			Boat.Destroyer + "(" + Boat.Destroyer.length + ")", Boat.PatrolShip + "(" + Boat.PatrolShip.length + ")" };
+	private String boat[] = {};
 
 	public SidePanel() {
 		this.nametag = new JLabel("Beschikbare Schepen");
 		add(nametag);
 		revalidate();
+	}
+	
+	private void addAllShip(){
+		this.boat = new String[Boat.values().length];
+		for(int i=0;i<Boat.values().length;i++){
+			boat[i]=Boat.values()[i].toString();
+		}
 	}
 }
