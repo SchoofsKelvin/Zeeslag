@@ -14,6 +14,7 @@ public class BattleshipBoard extends Board {
 	public BattleshipBoard(BattleshipGame game, Player player) {
 		this.game = game;
 		this.player = player;
+		resetBoard(10);
 	}
 
 	@Override
@@ -27,6 +28,7 @@ public class BattleshipBoard extends Board {
 	}
 
 	public void clickedCell(int x, int y, boolean other) throws DomainException {
+		System.out.println("(" + x + ", " + y + ") other: " + other);
 		Turn turn = game.getTurn();
 		if (turn == Turn.Starting && other) return;
 		if (turn != Turn.Starting && game.getActivePlayer() != player) return;
@@ -40,21 +42,51 @@ public class BattleshipBoard extends Board {
 
 	public boolean canPlaceBoat(Boat b, boolean horizontal, Cell clicked)
 		throws DomainException {
-		int start_x = clicked.x - 1;
-		int start_y = clicked.y - 1;
-		int end_x = clicked.x + 1;
-		int end_y = clicked.y + 1;
+		int start_x = clicked.x - 1, end_x = clicked.x + 1;
+		int start_y = clicked.y - 1, end_y = clicked.y + 1;
 		if (horizontal) {
-			end_x += b.length;
+			end_x += b.length - 1;
 		} else {
-			end_y += b.length;
+			end_y += b.length - 1;
 		}
-		for (int x = start_x; x < end_x; x++) {
-			for (int y = start_y; y < end_y; y++) {
+		int size = getGridSize() - 1;
+		if (start_x + 1 < 0 || end_x - 1 > size) return false;
+		if (start_y + 1 < 0 || end_y - 1 > size) return false;
+		start_x = start_x < 0 ? 0 : start_x;
+		start_y = start_y < 0 ? 0 : start_y;
+		end_x = end_x > size ? size : end_x;
+		end_y = end_y > size ? size : end_y;
+		for (int x = start_x; x <= end_x; x++) {
+			for (int y = start_y; y <= end_y; y++) {
+				System.out.println(x + ", " + y);
 				if (getCell(x, y).hasBoat()) return false;
 			}
 		}
 		return true;
+	}
+
+	public void placeBoat(Boat boat, boolean horizontal, BattleshipCell cell) {
+		int start_x = cell.x, end_x = cell.x;
+		int start_y = cell.y, end_y = cell.y;
+		if (horizontal) {
+			end_x += boat.length - 1;
+		} else {
+			end_y += boat.length - 1;
+		}
+		System.out.println(start_x + " " + start_y + " " + end_x + " " + end_y);
+		start_x = start_x < 0 ? 0 : start_x;
+		start_y = start_y < 0 ? 0 : start_y;
+		int size = getGridSize();
+		end_x = end_x > size ? size : end_x;
+		end_y = end_y > size ? size : end_y;
+		System.out.println(start_x + " " + start_y + " " + end_x + " " + end_y);
+		for (int x = start_x; x <= end_x; x++) {
+			for (int y = start_y; y <= end_y; y++) {
+				System.out.println(x + ", " + y);
+				getCell(x, y).setBoat(true);
+				fireCellUpdated(x, y);
+			}
+		}
 	}
 
 }
