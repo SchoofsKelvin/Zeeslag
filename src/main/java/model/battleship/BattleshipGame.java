@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import exception.DomainException;
 import model.Player;
+import model.battleship.ai.AI;
+import model.battleship.ai.Strategy;
 import view.battleship.BattleshipBoardCell;
 import view.battleship.BattleshipBoardFrame;
 import view.battleship.ShipPickerPanel;
@@ -18,8 +20,8 @@ public class BattleshipGame {
 	private BattleshipBoardFrame	frame;
 	private Turn					turn		= Turn.Starting;
 
-	public BattleshipGame(Player player) throws DomainException {
-		AI AI = new AI();
+	public BattleshipGame(Player player, Strategy strategy) throws DomainException {
+		AI AI = new AI(strategy);
 		this.player1 = player;
 		this.player2 = AI;
 		board1 = new BattleshipBoard(this, player1);
