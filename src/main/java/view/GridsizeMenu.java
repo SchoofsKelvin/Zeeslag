@@ -2,9 +2,15 @@ package view;
 
 import javax.swing.JOptionPane;
 
+import model.battleship.ai.AllSeeingEnemyStrategy;
+import model.battleship.ai.RandomStrategy;
+import model.battleship.ai.Strategy;
+
 public class GridsizeMenu {
 
-	private String[] gridSize = { "5", "9", "10", "20" };
+	private final static String[]	gridSize	= { "5", "9", "10", "20" };
+	private final static Strategy[]	strategies	=
+		{ RandomStrategy.singleton, AllSeeingEnemyStrategy.singleton };
 
 	public GridsizeMenu() {}
 
@@ -22,6 +28,12 @@ public class GridsizeMenu {
 			name = JOptionPane.showInputDialog(null, "What is your name?");
 		}
 		return name;
+	}
+
+	public Strategy askStrategy() {
+		return (Strategy) JOptionPane.showInputDialog(null,
+			"Which strategy for the AI do you want to use?", "Choose an AI Strategy",
+			JOptionPane.QUESTION_MESSAGE, null, strategies, strategies[0]);
 	}
 
 	/**
