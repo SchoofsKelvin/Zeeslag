@@ -4,27 +4,26 @@ import model.Cell;
 
 public class BattleshipCell extends Cell {
 
-	private boolean	shot;
-	private Boat	boat;
+	private BattleshipCellState state = BattleshipCellState.EMPTY;
 
 	public BattleshipCell(int x, int y) {
 		super(x, y);
 	}
 
-	public Boat getBoat() {
-		return boat;
-	}
-
-	public void setBoat(Boat boat) {
-		this.boat = boat;
+	public boolean hasBoat() {
+		return state.hasBoat;
 	}
 
 	public boolean isShot() {
-		return shot;
+		return !state.canShoot;
 	}
 
 	public void setShot(boolean shot) {
-		this.shot = shot;
+		if (shot) {
+			state = hasBoat() ? BattleshipCellState.HIT : BattleshipCellState.SHOT;
+		} else {
+			state = hasBoat() ? BattleshipCellState.BOAT : BattleshipCellState.EMPTY;
+		}
 	}
 
 }
