@@ -6,13 +6,13 @@ import model.battleship.ai.AllSeeingEnemyStrategy;
 import model.battleship.ai.RandomStrategy;
 import model.battleship.ai.Strategy;
 
-public class GridsizeMenu {
+public class BattleshipMenu {
 
 	private final static String[]	gridSize	= { "5", "9", "10", "20" };
 	private final static Strategy[]	strategies	=
 		{ RandomStrategy.singleton, AllSeeingEnemyStrategy.singleton };
 
-	public GridsizeMenu() {}
+	public BattleshipMenu() {}
 
 	public int getGridSize() {
 		String size = (String) JOptionPane.showInputDialog(null,
