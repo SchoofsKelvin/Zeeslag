@@ -1,18 +1,20 @@
-package model.battleship;
+package model.battleship.ai;
 
 import java.util.Random;
 
-import exception.DomainException;
-import model.Player;
+import model.battleship.BattleshipBoard;
+import model.battleship.BattleshipGame;
+import model.battleship.Boat;
 
-public class AI extends Player {
+public class RandomStrategy implements Strategy {
 
-	private final static Random random = new Random();
+	private final static Random			random		= new Random();
 
-	public AI() throws DomainException {
-		super("Computer");
-	}
+	public static final RandomStrategy	singleton	= new RandomStrategy();
 
+	protected RandomStrategy() {}
+
+	@Override
 	public void placeBoats(BattleshipBoard board) {
 		int size = board.getGridSize();
 		for (Boat boat : Boat.values()) {
@@ -28,6 +30,7 @@ public class AI extends Player {
 		}
 	}
 
+	@Override
 	public void doTurn(BattleshipGame game) {
 		int size = BattleshipGame.gridSize;
 		while (true) {
