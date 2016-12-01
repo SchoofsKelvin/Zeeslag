@@ -40,6 +40,7 @@ public class ShipPickerPanel extends JPanel {
 		buttongroup.add(vertical = new JRadioButton("Vertical"));
 		direction.add(horizontal);
 		direction.add(vertical);
+		horizontal.setSelected(true);
 	}
 
 	public void reset() {

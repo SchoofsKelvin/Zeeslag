@@ -8,8 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import exception.DomainException;
+import model.CellUpdatedObserver;
 
-public class BoardPanel extends JPanel {
+public class BoardPanel extends JPanel implements CellUpdatedObserver {
 
 	private static final long	serialVersionUID	= 1L;
 
@@ -56,6 +57,12 @@ public class BoardPanel extends JPanel {
 	public void updateCell(int x, int y) throws DomainException {
 		BoardCell cell = getCell(x, y);
 		cell.updateCell();
+	}
+
+	@Override
+	public void cellUpdated(int x, int y) {
+		System.out.println("cellUpdated " + x + ", " + y + " for " + nametag.getText());
+		updateCell(x, y);
 	}
 
 }
