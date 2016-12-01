@@ -51,7 +51,7 @@ public class BattleshipBoard extends Board {
 		}
 		for (int x = start_x; x < end_x; x++) {
 			for (int y = start_y; y < end_y; y++) {
-				if (getCell(x, y).getBoat() != null) return false;
+				if (getCell(x, y).hasBoat()) return false;
 			}
 		}
 		return true;
