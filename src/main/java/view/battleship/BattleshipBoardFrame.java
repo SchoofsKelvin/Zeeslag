@@ -5,7 +5,9 @@ import view.BoardFrame;
 
 public final class BattleshipBoardFrame extends BoardFrame {
 
-	private ShipPickerPanel picker;
+	private static final long	serialVersionUID	= -2458982237956517265L;
+
+	private ShipPickerPanel		picker;
 
 	public BattleshipBoardFrame(int gridSize, BoardCellFactory factory1,
 		BoardCellFactory factory2) {
@@ -21,7 +23,5 @@ public final class BattleshipBoardFrame extends BoardFrame {
 	public ShipPickerPanel getShipPicker() {
 		return picker;
 	}
-
-	private static final long serialVersionUID = -2458982237956517265L;
 
 }

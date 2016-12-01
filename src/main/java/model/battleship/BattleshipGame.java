@@ -25,6 +25,8 @@ public class BattleshipGame {
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board2, true));
 		frame.setLeftName(player1.getName());
 		frame.setRightName(player2.getName());
+		board1.addObserver(frame.left);
+		board2.addObserver(frame.right);
 	}
 
 	public Player getActivePlayer() {
@@ -39,6 +41,7 @@ public class BattleshipGame {
 	}
 
 	public boolean shoot(int x, int y) throws DomainException {
+		System.out.println("Shot (" + x + ", " + y + ")");
 		if (turn == Turn.Starting) return false;
 		boolean leTurn = turn == Turn.Player1;
 		BattleshipBoard board = leTurn ? board2 : board1;
@@ -61,9 +64,15 @@ public class BattleshipGame {
 	}
 
 	public void placeBoat(Player player, BattleshipCell cell) {
+		System.out.println(player + " places a boat at " + cell);
 		ShipPickerPanel picker = frame.getShipPicker();
+		if (picker.isFinished()) return;
 		Boat boat = picker.getBoat();
-
+		boolean horizontal = picker.rotationIsHorizontal();
+		BattleshipBoard board = player.equals(player1) ? board1 : board2;
+		if ( !board.canPlaceBoat(boat, horizontal, cell)) return;
+		board.placeBoat(boat, horizontal, cell);
+		picker.removeBoat(boat);
 	}
 
 	/*
