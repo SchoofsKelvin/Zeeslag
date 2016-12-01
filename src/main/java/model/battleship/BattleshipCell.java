@@ -26,4 +26,9 @@ public class BattleshipCell extends Cell {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "BattleshipCell(" + x + ", " + y + ", " + state + ")";
+	}
+
 }
