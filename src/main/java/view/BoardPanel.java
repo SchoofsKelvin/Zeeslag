@@ -61,7 +61,6 @@ public class BoardPanel extends JPanel implements CellUpdatedObserver {
 
 	@Override
 	public void cellUpdated(int x, int y) {
-		System.out.println("cellUpdated " + x + ", " + y + " for " + nametag.getText());
 		updateCell(x, y);
 	}
 
