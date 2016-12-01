@@ -2,18 +2,18 @@ package view;
 
 import model.Player;
 import model.battleship.BattleshipGame;
-import model.battleship.Boat;
 
 public class App {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		GridsizeMenu menu = new GridsizeMenu();
 		String name = menu.askPlayerName();
-		try{
-		BattleshipGame game = new BattleshipGame(new Player(name));
-		}catch(Exception e){
+		try {
+			BattleshipGame game = new BattleshipGame(new Player(name));
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-			}
+	}
 
 }
