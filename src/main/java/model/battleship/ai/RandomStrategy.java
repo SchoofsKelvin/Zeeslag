@@ -42,4 +42,9 @@ public class RandomStrategy implements Strategy {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "Random Strategy";
+	}
+
 }

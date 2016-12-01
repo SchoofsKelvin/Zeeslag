@@ -8,7 +8,7 @@ public class App {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		GridsizeMenu menu = new GridsizeMenu();
+		BattleshipMenu menu = new BattleshipMenu();
 		String name = menu.askPlayerName();
 		Strategy strat = menu.askStrategy();
 		try {
