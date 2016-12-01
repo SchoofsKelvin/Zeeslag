@@ -28,4 +28,15 @@ public class AI extends Player {
 		}
 	}
 
+	public void doTurn(BattleshipGame game) {
+		int size = BattleshipGame.gridSize;
+		while (true) {
+			int x = random.nextInt(size);
+			int y = random.nextInt(size);
+			if (game.shoot(x, y)) {
+				break;
+			}
+		}
+	}
+
 }
