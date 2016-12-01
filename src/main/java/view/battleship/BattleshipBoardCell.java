@@ -32,7 +32,7 @@ public class BattleshipBoardCell extends BoardCell implements ActionListener {
 	@Override
 	public void updateCell() throws DomainException {
 		BattleshipCell cell = board.getCell(x, y);
-		if (cell.getBoat() == null) {
+		if (cell.hasBoat()) {
 			setColor(cell.isShot() ? CellColor.Shot : CellColor.Empty);
 		} else {
 			setColor(cell.isShot() ? CellColor.Hit : CellColor.Boat);
