@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -71,6 +72,11 @@ private BattleshipGame game;
 			}
 		}
 		assertTrue(true);
+	}
+	
+	@After
+	public void cleanUp(){
+		board. resetBoard(board.getGridSize());
 	}
 	
 	
