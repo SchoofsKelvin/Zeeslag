@@ -8,7 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Board;
 import model.Cell;
 import model.Player;
 import model.battleship.ai.AllSeeingEnemyStrategy;

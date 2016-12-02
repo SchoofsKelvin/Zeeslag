@@ -20,9 +20,7 @@ public class Cell {
 	}
 
 	private void setX(int x) {
-		if(x<0||x>10){
-			throw new DomainException("should be between 0 and 10");
-		}
+		
 		this.x = x;
 	}
 	
@@ -36,9 +34,7 @@ public class Cell {
 	}
 
 	private void setY(int y) {
-		if(y<0||y>10){
-			throw new DomainException("should be between 0 and 10");
-		}
+		
 		this.y=y;
 	}
 	
