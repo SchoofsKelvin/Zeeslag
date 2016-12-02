@@ -49,7 +49,8 @@ public class BattleshipGame {
 	}
 
 	public boolean shoot(int x, int y) throws DomainException {
-		System.out.println("Shoot (" + x + ", " + y + ")");
+		if (x < 0 || x >= gridSize) return false;
+		if (y < 0 || y >= gridSize) return false;
 		if (turn == TurnState.Starting) return false;
 		boolean leTurn = turn == TurnState.Player1;
 		BattleshipBoard board = leTurn ? board2 : board1;

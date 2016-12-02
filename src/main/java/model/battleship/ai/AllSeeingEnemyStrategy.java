@@ -29,9 +29,4 @@ public class AllSeeingEnemyStrategy extends RandomStrategy {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "All Seeing Enemy Strategy";
-	}
-
 }
