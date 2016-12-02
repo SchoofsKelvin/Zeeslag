@@ -4,16 +4,15 @@ import model.battleship.BattleshipBoard;
 import model.battleship.BattleshipCell;
 import model.battleship.BattleshipGame;
 
-public class AllSeeingEnemyStrategy extends RandomStrategy {
+public class FollowUpStrategy extends RandomStrategy {
 
-	public static final StrategyFactory factory =
-		new StrategyFactory("All Seeing Enemy Strategy") {
+	public static final StrategyFactory factory = new StrategyFactory("Follow up Strategy") {
 
-			@Override
-			public Strategy create() {
-				return new AllSeeingEnemyStrategy();
-			}
-		};
+		@Override
+		public Strategy create() {
+			return new FollowUpStrategy();
+		}
+	};
 
 	@Override
 	public void doTurn(BattleshipGame game) {
