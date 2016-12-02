@@ -26,7 +26,7 @@ public class BattleshipGame {
 		this.player2 = AI;
 		board1 = new BattleshipBoard(this, player1);
 		board2 = new BattleshipBoard(this, player2);
-		frame = new BattleshipBoardFrame(gridSize,
+		frame = new BattleshipBoardFrame(this, gridSize,
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board1, false),
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board2, true));
 		frame.setLeftName(player1.getName());
@@ -90,7 +90,9 @@ public class BattleshipGame {
 		if ( !board.canPlaceBoat(boat, horizontal, cell)) return;
 		board.placeBoat(boat, horizontal, cell);
 		picker.removeBoat(boat);
-		if ( !picker.isFinished()) return;
+	}
+
+	public void startGame() {
 		turn = Turn.Player1;
 	}
 
@@ -106,7 +108,7 @@ public class BattleshipGame {
 			double x = size * Math.random();
 			double y = size * Math.random();
 			double direction = Math.random();
-			boolean horizontal = (direction < 0.5);
+			boolean horizontal = direction < 0.5;
 			BattleshipCell cell = board.getCell((int) x, (int) y);
 			if ( !board.canPlaceBoat(boat, horizontal, cell)) return;
 			board.placeBoat(boat, horizontal, cell);
