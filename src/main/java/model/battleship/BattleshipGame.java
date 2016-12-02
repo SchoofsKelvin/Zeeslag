@@ -18,7 +18,7 @@ public class BattleshipGame {
 	public final BattleshipBoard	board1, board2;
 
 	private BattleshipBoardFrame	frame;
-	private Turn					turn		= Turn.Starting;
+	private TurnState					turn		= TurnState.Starting;
 
 	public BattleshipGame(Player player, Strategy strategy) throws DomainException {
 		AI AI = new AI(strategy);
@@ -50,8 +50,8 @@ public class BattleshipGame {
 
 	public boolean shoot(int x, int y) throws DomainException {
 		System.out.println("Shoot (" + x + ", " + y + ")");
-		if (turn == Turn.Starting) return false;
-		boolean leTurn = turn == Turn.Player1;
+		if (turn == TurnState.Starting) return false;
+		boolean leTurn = turn == TurnState.Player1;
 		BattleshipBoard board = leTurn ? board2 : board1;
 		BattleshipCell cell = board.getCell(x, y);
 		if (cell.isShot()) return false;
@@ -61,7 +61,7 @@ public class BattleshipGame {
 		// sender.updateCell(x, y);
 		// victim.updateCell(x, y);
 		board.fireCellUpdated(x, y);
-		turn = turn == Turn.Player1 ? Turn.Player2 : Turn.Player1;
+		turn = turn == TurnState.Player1 ? TurnState.Player2 : TurnState.Player1;
 		checkForAI();
 		return true;
 	}
@@ -73,11 +73,11 @@ public class BattleshipGame {
 		}
 	}
 
-	public Turn getTurn() {
+	public TurnState getTurn() {
 		return turn;
 	}
 
-	public enum Turn {
+	public enum TurnState {
 		Starting, Player1, Player2, Finished;
 	}
 
@@ -95,7 +95,7 @@ public class BattleshipGame {
 
 	public void startGame() {
 		System.out.println("works fine");
-		turn = Turn.Player1;
+		turn = TurnState.Player1;
 	}
 
 	public void placeAllBoatsAI(ArrayList<Boat> boats) {
