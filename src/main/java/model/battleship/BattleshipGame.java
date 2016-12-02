@@ -18,7 +18,7 @@ public class BattleshipGame {
 	public final BattleshipBoard	board1, board2;
 
 	private BattleshipBoardFrame	frame;
-	private TurnState					turn		= TurnState.Starting;
+	private TurnState				turn		= TurnState.Starting;
 
 	public BattleshipGame(Player player, Strategy strategy) throws DomainException {
 		AI AI = new AI(strategy);
@@ -82,7 +82,6 @@ public class BattleshipGame {
 	}
 
 	public void placeBoat(Player player, BattleshipCell cell) {
-		System.out.println(player + " places a boat at " + cell);
 		ShipPickerPanel picker = frame.getShipPicker();
 		if (picker.isFinished()) return;
 		Boat boat = picker.getBoat();
@@ -94,7 +93,6 @@ public class BattleshipGame {
 	}
 
 	public void startGame() {
-		System.out.println("works fine");
 		turn = TurnState.Player1;
 	}
 
