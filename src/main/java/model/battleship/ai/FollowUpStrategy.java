@@ -1,31 +1,107 @@
 package model.battleship.ai;
 
+import java.util.Random;
+
 import model.battleship.BattleshipBoard;
 import model.battleship.BattleshipCell;
 import model.battleship.BattleshipGame;
 
 public class FollowUpStrategy extends RandomStrategy {
 
-	public static final StrategyFactory factory = new StrategyFactory("Follow up Strategy") {
+	public static final StrategyFactory	factory	= new StrategyFactory("Follow up Strategy") {
 
-		@Override
-		public Strategy create() {
-			return new FollowUpStrategy();
-		}
-	};
+													@Override
+													public Strategy create() {
+														return new FollowUpStrategy();
+													}
+												};
+
+	private final static Random			random	= new Random();
+
+	private GoodHit						goodHit	= null;
 
 	@Override
 	public void doTurn(BattleshipGame game) {
+		System.out.println();
 		BattleshipBoard board = game.board1;
+		if (goodHit != null) {
+			boolean done = goodHit.doTurn(board);
+			if (goodHit.finished()) {
+				goodHit = null;
+			}
+			if (done) return;
+		}
 		int size = BattleshipGame.gridSize;
-		for (int x = 0; x < size; x++) {
-			for (int y = 0; y < size; y++) {
-				BattleshipCell cell = board.getCell(x, y);
-				if (cell.hasBoat() && !cell.isShot()) {
-					if (game.shoot(x, y)) return;
+		while (true) {
+			int x = random.nextInt(size);
+			int y = random.nextInt(size);
+			BattleshipCell cell = board.getCell(x, y);
+			if ( !cell.isShot()) {
+				if (game.shoot(x, y)) {
+					if (cell.hasBoat()) {
+						goodHit = new GoodHit(cell);
+					}
+					return;
 				}
 			}
 		}
+	}
+
+	@SuppressWarnings("unused")
+	private static class GoodHit {
+
+		private BattleshipCell	cell;
+		private int				dir		= 0;	// starting south,
+												// counterclockwise
+		private int				amount	= 1;
+		private boolean			knows	= false;
+		private boolean			found	= false;
+		private boolean			done	= false;
+		private int				x, y;
+
+		public GoodHit(BattleshipCell cell) {
+			this.cell = cell;
+			x = cell.x;
+			y = cell.y;
+		}
+
+		private int getDirX() {
+			return dir == 1 ? x + amount : dir == 3 ? x - amount : x;
+		}
+
+		private int getDirY() {
+			return dir == 0 ? y + amount : dir == 2 ? y - amount : y;
+		}
+
+		public boolean doTurn(BattleshipBoard board) {
+			System.out.println(dir + " | " + amount + " | " + found);
+			if (board.game.shoot(getDirX(), getDirY())) {
+				found = board.getCell(getDirX(), getDirY()).hasBoat();
+				knows = knows || found;
+				amount = found ? amount + 1 : 1;
+				if ( !found && ++dir == 4) {
+					done = true;
+				} else if ( !found && knows) {
+					if ((dir += 1) >= 4) {
+						done = true;
+					}
+				}
+				return true;
+			} else {
+				if (++dir == 4) {
+					done = true;
+					return false;
+				} else {
+					amount = 1;
+				}
+				return doTurn(board);
+			}
+		}
+
+		public boolean finished() {
+			return done;
+		}
+
 	}
 
 }
