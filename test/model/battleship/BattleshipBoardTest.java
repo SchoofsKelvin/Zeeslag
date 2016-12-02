@@ -29,7 +29,7 @@ private BattleshipGame game;
 		this.vertical = false;
 		this.shortBoat = Boat.PatrolShip;
 		this.longBoat = Boat.AircraftCarrier;
-		this.player = new Player("Surendra");
+		this.player = new Player("Jef");
 		this.game = new BattleshipGame(player, new AllSeeingEnemyStrategy());
 		this.board = new BattleshipBoard(game, player);
 	}
