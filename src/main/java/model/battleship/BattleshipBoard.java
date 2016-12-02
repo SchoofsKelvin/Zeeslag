@@ -4,7 +4,7 @@ import exception.DomainException;
 import model.Board;
 import model.Cell;
 import model.Player;
-import model.battleship.BattleshipGame.Turn;
+import model.battleship.BattleshipGame.TurnState;
 
 public class BattleshipBoard extends Board {
 
@@ -29,14 +29,14 @@ public class BattleshipBoard extends Board {
 
 	public void clickedCell(int x, int y, boolean other) throws DomainException {
 		System.out.println("(" + x + ", " + y + ") other: " + other);
-		Turn turn = game.getTurn();
+		TurnState turn = game.getTurn();
 		System.out.println("Turn: " + turn + " == " + player);
-		if (turn == Turn.Starting && other) return;
-		if (turn != Turn.Starting && (game.getActivePlayer().equals(player) == other)) return;
+		if (turn == TurnState.Starting && other) return;
+		if (turn != TurnState.Starting && (game.getActivePlayer().equals(player) == other)) return;
 		BattleshipCell cell = getCell(x, y);
 		if (other) {
 			game.shoot(x, y);
-		} else if (turn == Turn.Starting) {
+		} else if (turn == TurnState.Starting) {
 			game.placeBoat(player, cell);
 		}
 	}

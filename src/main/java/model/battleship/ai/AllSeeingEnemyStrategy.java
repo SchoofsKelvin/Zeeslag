@@ -6,7 +6,14 @@ import model.battleship.BattleshipGame;
 
 public class AllSeeingEnemyStrategy extends RandomStrategy {
 
-	public static final AllSeeingEnemyStrategy singleton = new AllSeeingEnemyStrategy();
+	public static final StrategyFactory factory =
+		new StrategyFactory("All Seeing Enemy Strategy") {
+
+			@Override
+			public Strategy create() {
+				return new AllSeeingEnemyStrategy();
+			}
+		};
 
 	@Override
 	public void doTurn(BattleshipGame game) {
