@@ -8,6 +8,7 @@ import model.battleship.ai.AI;
 import model.battleship.ai.Strategy;
 import view.battleship.BattleshipBoardCell;
 import view.battleship.BattleshipBoardFrame;
+import view.battleship.GameStartedListener;
 import view.battleship.ShipPickerPanel;
 
 public class BattleshipGame {
@@ -26,11 +27,19 @@ public class BattleshipGame {
 		this.player2 = AI;
 		board1 = new BattleshipBoard(this, player1);
 		board2 = new BattleshipBoard(this, player2);
-		frame = new BattleshipBoardFrame(this, gridSize,
+		frame = new BattleshipBoardFrame(gridSize,
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board1, false),
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board2, true));
 		frame.setLeftName(player1.getName());
 		frame.setRightName(player2.getName());
+		frame.addGameStartedListener(new GameStartedListener() {
+			
+			@Override
+			public void gameStarted() {
+				startGame();
+				
+			}
+		});
 		board1.addObserver(frame.left);
 		board2.addObserver(frame.right);
 		AI.placeBoats(board2);
@@ -93,6 +102,7 @@ public class BattleshipGame {
 	}
 
 	public void startGame() {
+		System.out.println("works fine");
 		turn = Turn.Player1;
 	}
 

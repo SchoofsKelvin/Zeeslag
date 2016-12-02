@@ -10,17 +10,17 @@ import model.battleship.Boat;
 
 public class ShipPickerPanel extends JPanel {
 
-	private static final long				serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	private JComboBox<BoatStock>			box;
-	private BoatStock[]						stocks;
-	private int								amount;
-	private ButtonGroup						buttongroup;
-	private JRadioButton					horizontal, vertical;
-	private DefaultComboBoxModel<BoatStock>	model;
-	private JButton							start;
+	private JComboBox<BoatStock> box;
+	private BoatStock[] stocks;
+	private int amount;
+	private ButtonGroup buttongroup;
+	private JRadioButton horizontal, vertical;
+	private DefaultComboBoxModel<BoatStock> model;
+	private JButton start;
 
-	public ShipPickerPanel(BattleshipGame game) {
+	public ShipPickerPanel(BattleshipBoardFrame frame) {
 		setLayout(new GridLayout(3, 1));
 		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
@@ -47,7 +47,10 @@ public class ShipPickerPanel extends JPanel {
 
 		add(start = new JButton("Start game"));
 		start.setEnabled(false);
-		start.addActionListener(e -> game.startGame());
+		start.addActionListener(e -> {
+			frame.fireGameStarted();
+			start.setEnabled(false);
+		});
 		start.setPreferredSize(new Dimension(200, 50));
 	}
 
@@ -77,7 +80,8 @@ public class ShipPickerPanel extends JPanel {
 	}
 
 	public Boat getBoat() {
-		if (isFinished()) return null;
+		if (isFinished())
+			return null;
 		return ((BoatStock) box.getSelectedItem()).boat;
 	}
 
@@ -91,8 +95,8 @@ public class ShipPickerPanel extends JPanel {
 
 	public static class BoatStock {
 
-		public final Boat	boat;
-		private int			stock;
+		public final Boat boat;
+		private int stock;
 
 		public BoatStock(Boat boat) {
 			this.boat = boat;
