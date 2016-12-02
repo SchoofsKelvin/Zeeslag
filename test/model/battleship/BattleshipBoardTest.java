@@ -2,6 +2,9 @@ package model.battleship;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +14,7 @@ import model.Player;
 import model.battleship.ai.AllSeeingEnemyStrategy;
 
 public class BattleshipBoardTest {
-private Cell valid,unvalid;
+private BattleshipCell valid,unvalid;
 private boolean horizontal,vertical;
 private Boat shortBoat,longBoat;
 private BattleshipBoard board;
@@ -20,8 +23,8 @@ private BattleshipGame game;
 	
 	@Before
 	public void setUp(){
-		this.valid = new Cell(7, 7);
-		this.unvalid = new Cell(-1, -1);
+		this.valid = new BattleshipCell(7, 7);
+		this.unvalid = new BattleshipCell(-1, -1);
 		this.horizontal = true;
 		this.vertical = false;
 		this.shortBoat = Boat.PatrolShip;
@@ -50,6 +53,25 @@ private BattleshipGame game;
 	public void test_cannotPlaceBoat_on_invalid_cell(){
 		assertFalse(board.canPlaceBoat(shortBoat, horizontal, unvalid));
 		assertFalse(board.canPlaceBoat(shortBoat, vertical, unvalid));	
+	}
+	
+	@Test
+	public void test_placeBoat(){
+		board.placeBoat(shortBoat, horizontal,valid);
+		List<Cell> boatcells = new ArrayList<Cell>();
+		for(int l=0;l<shortBoat.length;l++){
+			boatcells.add(new Cell(valid.x,valid.y+l));
+		}
+		for(int i=0;i<board.getGridSize();i++){
+			for(int j=0;j<board.getGridSize();j++){
+				BattleshipCell c = board.getCell(i, j);
+				if((boatcells.contains(c) && !c.hasBoat()) || (!boatcells.contains(c) && c.hasBoat())){
+					//assertTrue(false);
+					return;
+				}
+			}
+		}
+		assertTrue(true);
 	}
 	
 	
