@@ -8,29 +8,31 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 import model.Cell;
 import model.Player;
-import model.battleship.ai.AllSeeingEnemyStrategy;
 
 public class BattleshipBoardTest {
 private BattleshipCell valid,unvalid;
 private boolean horizontal,vertical;
 private Boat shortBoat,longBoat;
 private BattleshipBoard board;
+@Mock
 private Player player;
+@Mock
 private BattleshipGame game; 
 	
 	@Before
 	public void setUp(){
+		initMocks(this);
 		this.valid = new BattleshipCell(7, 7);
 		this.unvalid = new BattleshipCell(-1, -1);
 		this.horizontal = true;
 		this.vertical = false;
 		this.shortBoat = Boat.PatrolShip;
 		this.longBoat = Boat.AircraftCarrier;
-		this.player = new Player("Jef");
-		this.game = new BattleshipGame(player, new AllSeeingEnemyStrategy());
 		this.board = new BattleshipBoard(game, player);
 	}
 	
