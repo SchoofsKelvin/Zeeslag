@@ -5,12 +5,13 @@ import javax.swing.JOptionPane;
 import model.battleship.ai.AllSeeingEnemyStrategy;
 import model.battleship.ai.RandomStrategy;
 import model.battleship.ai.Strategy;
+import model.battleship.ai.Strategy.StrategyFactory;
 
 public class BattleshipMenu {
 
-	private final static String[]	gridSize	= { "5", "9", "10", "20" };
-	private final static Strategy[]	strategies	=
-		{ RandomStrategy.singleton, AllSeeingEnemyStrategy.singleton };
+	private final static String[]			gridSize	= { "5", "9", "10", "20" };
+	private final static StrategyFactory[]	strategies	=
+		{ RandomStrategy.factory, AllSeeingEnemyStrategy.factory };
 
 	public BattleshipMenu() {}
 
@@ -31,8 +32,9 @@ public class BattleshipMenu {
 	}
 
 	public Strategy askStrategy() {
-		return (Strategy) JOptionPane.showInputDialog(null,
+		StrategyFactory fac = (StrategyFactory) JOptionPane.showInputDialog(null,
 			"Which strategy for the AI do you want to use?", "Choose an AI Strategy",
 			JOptionPane.QUESTION_MESSAGE, null, strategies, strategies[0]);
+		return fac == null ? null : fac.create();
 	}
 }
