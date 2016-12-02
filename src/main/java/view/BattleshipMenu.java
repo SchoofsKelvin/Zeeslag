@@ -35,8 +35,4 @@ public class BattleshipMenu {
 			"Which strategy for the AI do you want to use?", "Choose an AI Strategy",
 			JOptionPane.QUESTION_MESSAGE, null, strategies, strategies[0]);
 	}
-
-	/**
-	 * this class is used to create a scroll menu!
-	 */
 }
