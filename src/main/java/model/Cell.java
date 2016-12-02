@@ -8,5 +8,14 @@ public class Cell {
 		this.x = x;
 		this.y = y;
 	}
+	
+	@Override
+	public boolean equals(Object cell){
+		if(!(cell instanceof Cell)){
+			return false;
+		}
+		Cell c = (Cell) cell;
+		return this.x == c.x && this.y == c.y;
+	}
 
 }
