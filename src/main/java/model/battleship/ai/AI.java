@@ -10,7 +10,7 @@ public class AI extends Player {
 	private Strategy strategy = new RandomStrategy();
 
 	public AI() throws DomainException {
-		super("Computer");
+		super("BoatyMcBoatFace");
 	}
 
 	public AI(Strategy strategy) {
