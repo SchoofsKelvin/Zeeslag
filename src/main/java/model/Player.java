@@ -15,8 +15,8 @@ public class Player {
 	}
 
 	private void setName(String name) throws DomainException {
-		if (name == null || name.trim()
-			.isEmpty()) { throw new DomainException("The name may not be empty or null"); }
+		if (name == null || name.trim().isEmpty())
+			throw new DomainException("The name may not be empty or null");
 		this.name = name;
 	}
 
