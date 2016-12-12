@@ -6,9 +6,7 @@ import exception.DomainException;
 import model.Player;
 import model.battleship.ai.AI;
 import model.battleship.ai.Strategy;
-import view.battleship.BattleshipBoardCell;
-import view.battleship.BattleshipBoardFrame;
-import view.battleship.ShipPickerPanel;
+import view.battleship.UserInterfaceService;
 
 public class BattleshipGame {
 
@@ -17,8 +15,8 @@ public class BattleshipGame {
 	public final Player				player1, player2;
 	public final BattleshipBoard	board1, board2;
 
-	private BattleshipBoardFrame	frame;
 	private TurnState				turn		= TurnState.Starting;
+	private UserInterfaceService	uis;
 
 	public BattleshipGame(Player player, Strategy strategy) throws DomainException {
 		AI AI = new AI(strategy);
@@ -26,15 +24,7 @@ public class BattleshipGame {
 		this.player2 = AI;
 		board1 = new BattleshipBoard(this, player1);
 		board2 = new BattleshipBoard(this, player2);
-		frame = new BattleshipBoardFrame(gridSize,
-			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board1, false),
-			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board2, true));
-		frame.setLeftName(player1.getName());
-		frame.setRightName(player2.getName());
-		frame.addGameStartedListener(this::startGame);
-		frame.addGameResettedListener(this::resetGame);
-		board1.addObserver(frame.left);
-		board2.addObserver(frame.right);
+		uis = new UserInterfaceService(this);
 		AI.placeBoats(board2);
 	}
 
@@ -84,14 +74,13 @@ public class BattleshipGame {
 	}
 
 	public void placeBoat(Player player, BattleshipCell cell) {
-		ShipPickerPanel picker = frame.getShipPicker();
-		if (picker.isFinished()) return;
-		Boat boat = picker.getBoat();
-		boolean horizontal = picker.rotationIsHorizontal();
+		if (uis.isFinishedPickingBoats()) return;
+		Boat boat = uis.getPickedBoat();
+		boolean horizontal = uis.isRotationHorizontal();
 		BattleshipBoard board = player.equals(player1) ? board1 : board2;
 		if ( !board.canPlaceBoat(boat, horizontal, cell)) return;
 		board.placeBoat(boat, horizontal, cell);
-		picker.removeBoat(boat);
+		uis.removePickableBoat(boat);
 	}
 
 	public void startGame() {
@@ -102,8 +91,7 @@ public class BattleshipGame {
 		turn = TurnState.Starting;
 		board1.resetBoard(gridSize);
 		board2.resetBoard(gridSize);
-		frame.resetBoards();
-		frame.getShipPicker().reset();
+		uis.reset();
 	}
 
 	public void placeAllBoatsAI(ArrayList<Boat> boats) {
@@ -124,11 +112,5 @@ public class BattleshipGame {
 			board.placeBoat(boat, horizontal, cell);
 		}
 	}
-
-	/*
-	 * frame = new BoardFrame(10, new BoardCellFactory() {
-	 * @Override public BoardCell createCell(int buttonsize) { return new
-	 * BattleshipBoardCell(BattleshipGame.this, buttonsize); } });
-	 */
 
 }
