@@ -1,6 +1,10 @@
 package view.battleship;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import javax.swing.JOptionPane;
 
@@ -14,8 +18,20 @@ public class BattleshipMenu {
 
 	private final static String[]				gridSize	= { "5", "9", "10", "20" };
 	private final ArrayList<StrategyFactory>	strategies	= new ArrayList<>();
+	private final Properties					props;
+	private static final File					file		=
+		new File("battleship.properties");
 
 	public BattleshipMenu() {
+		props = new Properties();
+		if (file.exists()) {
+			try {
+				props.load(new FileInputStream(file));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		addStrategyFactory(RandomStrategy.factory);
 		addStrategyFactory(FollowUpStrategy.factory);
 		addStrategyFactory(AllSeeingEnemyStrategy.factory);
@@ -38,10 +54,24 @@ public class BattleshipMenu {
 	}
 
 	public Strategy askStrategy() {
+		int key = Integer.parseInt(props.getProperty("strategy", "0"));
 		StrategyFactory fac = (StrategyFactory) JOptionPane.showInputDialog(null,
 			"Which strategy for the AI do you want to use?", "Choose an AI Strategy",
-			JOptionPane.QUESTION_MESSAGE, null, strategies.toArray(), strategies.get(0));
+			JOptionPane.QUESTION_MESSAGE, null, strategies.toArray(), strategies.get(key));
+		if (fac != null) {
+			key = strategies.indexOf(fac);
+			props.setProperty("strategy", key + "");
+			save();
+		}
 		return fac == null ? null : fac.create();
+	}
+
+	private void save() {
+		try {
+			props.store(new FileWriter(file), null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void addStrategyFactory(StrategyFactory factory) {
