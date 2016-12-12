@@ -4,8 +4,6 @@ import java.awt.Dimension;
 
 import javax.swing.JButton;
 
-import exception.DomainException;
-
 public class BoardCell extends JButton {
 
 	private static final long	serialVersionUID	= 1L;
@@ -21,7 +19,5 @@ public class BoardCell extends JButton {
 		this.x = x;
 		this.y = y;
 	}
-
-	public void updateCell() throws DomainException {}
 
 }

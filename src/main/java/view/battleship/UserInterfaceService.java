@@ -1,5 +1,6 @@
 package view.battleship;
 
+import model.battleship.BattleshipCell;
 import model.battleship.BattleshipGame;
 import model.battleship.Boat;
 
@@ -11,16 +12,18 @@ public class UserInterfaceService {
 	public UserInterfaceService(BattleshipGame game) {
 		this.game = game;
 		frame = new BattleshipBoardFrame(BattleshipGame.gridSize,
-			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, game.board1,
-				false),
-			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, game.board2,
-				true));
+			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize,
+				(x1, y1) -> game.board1.clickedCell(x1, y1, false)),
+			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize,
+				(x1, y1) -> game.board2.clickedCell(x1, y1, true)));
 		frame.setLeftName(game.player1.getName());
 		frame.setRightName(game.player2.getName());
 		frame.addGameStartedListener(game::startGame);
 		frame.addGameResettedListener(game::resetGame);
-		game.board1.addObserver(frame.left);
-		game.board2.addObserver(frame.right);
+		// game.board1.addObserver(frame.left);
+		// game.board2.addObserver(frame.right);
+		game.board1.addObserver(this::cellUpdated);
+		game.board2.addObserver(this::cellUpdated);
 	}
 
 	public BattleshipGame getGame() {
@@ -46,6 +49,22 @@ public class UserInterfaceService {
 	public void reset() {
 		frame.resetBoards();
 		frame.getShipPicker().reset();
+	}
+
+	public void cellUpdated(int x, int y) {
+		BattleshipCell cellA = game.board1.getCell(x, y);
+		BattleshipCell cellB = game.board2.getCell(x, y);
+		BattleshipBoardCell targetA = (BattleshipBoardCell) frame.left.getCell(x, y);
+		BattleshipBoardCell targetB = (BattleshipBoardCell) frame.right.getCell(x, y);
+		targetA.setColor(calculateCellColor(cellA, false));
+		targetB.setColor(calculateCellColor(cellB, true));
+	}
+
+	public CellColor calculateCellColor(BattleshipCell cell, boolean other) {
+		if (cell.isShot())
+			return cell.hasBoat() ? CellColor.Hit : CellColor.Shot;
+		else
+			return cell.hasBoat() && !other ? CellColor.Boat : CellColor.Empty;
 	}
 
 }
