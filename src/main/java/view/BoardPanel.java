@@ -9,9 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import exception.DomainException;
-import model.CellUpdatedObserver;
 
-public class BoardPanel extends JPanel implements CellUpdatedObserver {
+public class BoardPanel extends JPanel {
 
 	private static final long	serialVersionUID	= 1L;
 
@@ -67,11 +66,6 @@ public class BoardPanel extends JPanel implements CellUpdatedObserver {
 	@Override
 	public void setName(String name) {
 		nametag.setText(name);
-	}
-
-	@Override
-	public void cellUpdated(int x, int y) {
-		getCell(x, y).updateCell();
 	}
 
 }
