@@ -1,11 +1,10 @@
-package view;
+package view.battleship;
 
 import model.Player;
 import model.battleship.BattleshipGame;
 import model.battleship.ai.Strategy;
-import view.battleship.BattleshipMenu;
 
-public class App {
+public class BattleshipApp {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
