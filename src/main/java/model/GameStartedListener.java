@@ -1,4 +1,4 @@
-package view.battleship;
+package model;
 
 public interface GameStartedListener {
 
