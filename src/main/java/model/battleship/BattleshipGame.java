@@ -1,35 +1,40 @@
 package model.battleship;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import exception.DomainException;
 import model.Player;
-import view.BoardPanel;
+import model.battleship.ai.AI;
+import model.battleship.ai.Strategy;
 import view.battleship.BattleshipBoardCell;
 import view.battleship.BattleshipBoardFrame;
 import view.battleship.ShipPickerPanel;
 
 public class BattleshipGame {
 
+	public final static int			gridSize	= 10;
+
 	public final Player				player1, player2;
 	public final BattleshipBoard	board1, board2;
 
 	private BattleshipBoardFrame	frame;
-	private Turn					turn	= Turn.Starting;
+	private TurnState				turn		= TurnState.Starting;
 
-	public BattleshipGame(Player player) throws DomainException {
+	public BattleshipGame(Player player, Strategy strategy) throws DomainException {
+		AI AI = new AI(strategy);
 		this.player1 = player;
-		this.player2 = new AI();
+		this.player2 = AI;
 		board1 = new BattleshipBoard(this, player1);
 		board2 = new BattleshipBoard(this, player2);
-		frame = new BattleshipBoardFrame(10,
+		frame = new BattleshipBoardFrame(gridSize,
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board1, false),
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board2, true));
 		frame.setLeftName(player1.getName());
 		frame.setRightName(player2.getName());
+		frame.addGameStartedListener(() -> startGame());
 		board1.addObserver(frame.left);
 		board2.addObserver(frame.right);
+		AI.placeBoats(board2);
 	}
 
 	public Player getActivePlayer() {
@@ -44,30 +49,40 @@ public class BattleshipGame {
 	}
 
 	public boolean shoot(int x, int y) throws DomainException {
-		System.out.println("Shot (" + x + ", " + y + ")");
-		if (turn == Turn.Starting) return false;
-		boolean leTurn = turn == Turn.Player1;
+		if (x < 0 || x >= gridSize) return false;
+		if (y < 0 || y >= gridSize) return false;
+		if (turn == TurnState.Starting) return false;
+		boolean leTurn = turn == TurnState.Player1;
 		BattleshipBoard board = leTurn ? board2 : board1;
 		BattleshipCell cell = board.getCell(x, y);
 		if (cell.isShot()) return false;
 		cell.setShot(true);
-		BoardPanel sender = leTurn ? frame.left : frame.right;
-		BoardPanel victim = leTurn ? frame.right : frame.left;
-		sender.updateCell(x, y);
-		victim.updateCell(x, y);
+		// BoardPanel sender = leTurn ? frame.left : frame.right;
+		// BoardPanel victim = leTurn ? frame.right : frame.left;
+		// sender.updateCell(x, y);
+		// victim.updateCell(x, y);
+		board.fireCellUpdated(x, y);
+		turn = turn == TurnState.Player1 ? TurnState.Player2 : TurnState.Player1;
+		checkForAI();
 		return true;
 	}
 
-	public Turn getTurn() {
+	private void checkForAI() {
+		Player player = getActivePlayer();
+		if (player instanceof AI) {
+			((AI) player).doTurn(this);
+		}
+	}
+
+	public TurnState getTurn() {
 		return turn;
 	}
 
-	public enum Turn {
-		Starting, Player1, Player2;
+	public enum TurnState {
+		Starting, Player1, Player2, Finished;
 	}
 
 	public void placeBoat(Player player, BattleshipCell cell) {
-		System.out.println(player + " places a boat at " + cell);
 		ShipPickerPanel picker = frame.getShipPicker();
 		if (picker.isFinished()) return;
 		Boat boat = picker.getBoat();
@@ -77,25 +92,26 @@ public class BattleshipGame {
 		board.placeBoat(boat, horizontal, cell);
 		picker.removeBoat(boat);
 	}
-	
 
+	public void startGame() {
+		turn = TurnState.Player1;
+	}
 
-	public void placeAllBoatsAI(ArrayList<Boat> boats){
-		for (int i=0;i<5;i++) {
-			Boat boat = boats.get( (int) (boats.size() * Math.random()));
+	public void placeAllBoatsAI(ArrayList<Boat> boats) {
+		for (int i = 0; i < 5; i++) {
+			Boat boat = boats.get((int) (boats.size() * Math.random()));
 			boats.remove(boat);
 
 			BattleshipBoard board = this.board2;
-			
+
 			int size = board.getGridSize();
-			
+
 			double x = size * Math.random();
 			double y = size * Math.random();
 			double direction = Math.random();
-			boolean horizontal = (direction < 0.5);
+			boolean horizontal = direction < 0.5;
 			BattleshipCell cell = board.getCell((int) x, (int) y);
-			if (!board.canPlaceBoat(boat, horizontal, cell))
-				return;
+			if ( !board.canPlaceBoat(boat, horizontal, cell)) return;
 			board.placeBoat(boat, horizontal, cell);
 		}
 	}

@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -22,10 +23,10 @@ public class BoardPanel extends JPanel implements CellUpdatedObserver {
 	public BoardPanel(String name, int gridSize, BoardCellFactory factory) {
 		cells = new BoardCell[gridSize][gridSize];
 		nametag = new JLabel(name);
-		setLayout(new GridBagLayout());
+		setLayout(new BorderLayout());
 		add(nametag);
 		JPanel holder = new JPanel();
-		add(holder);
+		add(holder, BorderLayout.SOUTH);
 		holder.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.weightx = 1 / gridSize;
@@ -54,15 +55,9 @@ public class BoardPanel extends JPanel implements CellUpdatedObserver {
 		nametag.setText(name);
 	}
 
-	public void updateCell(int x, int y) throws DomainException {
-		BoardCell cell = getCell(x, y);
-		cell.updateCell();
-	}
-
 	@Override
 	public void cellUpdated(int x, int y) {
-		System.out.println("cellUpdated " + x + ", " + y + " for " + nametag.getText());
-		updateCell(x, y);
+		getCell(x, y).updateCell();
 	}
 
 }

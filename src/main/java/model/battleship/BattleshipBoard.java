@@ -4,7 +4,7 @@ import exception.DomainException;
 import model.Board;
 import model.Cell;
 import model.Player;
-import model.battleship.BattleshipGame.Turn;
+import model.battleship.BattleshipGame.TurnState;
 
 public class BattleshipBoard extends Board {
 
@@ -28,14 +28,14 @@ public class BattleshipBoard extends Board {
 	}
 
 	public void clickedCell(int x, int y, boolean other) throws DomainException {
-		System.out.println("(" + x + ", " + y + ") other: " + other);
-		Turn turn = game.getTurn();
-		if (turn == Turn.Starting && other) return;
-		if (turn != Turn.Starting && game.getActivePlayer() != player) return;
+		TurnState turn = game.getTurn();
+		if (turn == TurnState.Starting && other) return;
+		if (turn != TurnState.Starting && (game.getActivePlayer().equals(player) == other))
+			return;
 		BattleshipCell cell = getCell(x, y);
 		if (other) {
 			game.shoot(x, y);
-		} else if (turn == Turn.Starting) {
+		} else if (turn == TurnState.Starting) {
 			game.placeBoat(player, cell);
 		}
 	}
@@ -58,7 +58,6 @@ public class BattleshipBoard extends Board {
 		end_y = end_y > size ? size : end_y;
 		for (int x = start_x; x <= end_x; x++) {
 			for (int y = start_y; y <= end_y; y++) {
-				System.out.println(x + ", " + y);
 				if (getCell(x, y).hasBoat()) return false;
 			}
 		}
@@ -73,16 +72,13 @@ public class BattleshipBoard extends Board {
 		} else {
 			end_y += boat.length - 1;
 		}
-		System.out.println(start_x + " " + start_y + " " + end_x + " " + end_y);
 		start_x = start_x < 0 ? 0 : start_x;
 		start_y = start_y < 0 ? 0 : start_y;
 		int size = getGridSize();
 		end_x = end_x > size ? size : end_x;
 		end_y = end_y > size ? size : end_y;
-		System.out.println(start_x + " " + start_y + " " + end_x + " " + end_y);
 		for (int x = start_x; x <= end_x; x++) {
 			for (int y = start_y; y <= end_y; y++) {
-				System.out.println(x + ", " + y);
 				getCell(x, y).setBoat(true);
 				fireCellUpdated(x, y);
 			}

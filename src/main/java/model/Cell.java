@@ -9,4 +9,11 @@ public class Cell {
 		this.y = y;
 	}
 
+	@Override
+	public boolean equals(Object cell) {
+		if ( !(cell instanceof Cell)) return false;
+		Cell c = (Cell) cell;
+		return x == c.x && y == c.y;
+	}
+
 }
