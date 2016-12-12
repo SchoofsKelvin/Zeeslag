@@ -3,7 +3,7 @@ package view.battleship;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.CellClickedListener;
+import model.listener.CellClickedListener;
 import view.BoardCell;
 
 public class BattleshipBoardCell extends BoardCell implements ActionListener {

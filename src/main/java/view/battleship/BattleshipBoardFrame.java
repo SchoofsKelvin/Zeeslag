@@ -3,8 +3,8 @@ package view.battleship;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.GameResettedListener;
-import model.GameStartedListener;
+import model.listener.GameResettedListener;
+import model.listener.GameStartedListener;
 import view.BoardCellFactory;
 import view.BoardFrame;
 

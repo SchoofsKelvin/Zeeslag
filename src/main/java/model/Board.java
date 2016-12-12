@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 import exception.DomainException;
+import model.listener.CellUpdatedObserver;
 
 public abstract class Board {
 
