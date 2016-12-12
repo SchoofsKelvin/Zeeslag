@@ -31,7 +31,8 @@ public class BattleshipGame {
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize, board2, true));
 		frame.setLeftName(player1.getName());
 		frame.setRightName(player2.getName());
-		frame.addGameStartedListener(() -> startGame());
+		frame.addGameStartedListener(this::startGame);
+		frame.addGameResettedListener(this::resetGame);
 		board1.addObserver(frame.left);
 		board2.addObserver(frame.right);
 		AI.placeBoats(board2);
@@ -95,6 +96,14 @@ public class BattleshipGame {
 
 	public void startGame() {
 		turn = TurnState.Player1;
+	}
+
+	public void resetGame() {
+		turn = TurnState.Starting;
+		board1.resetBoard(gridSize);
+		board2.resetBoard(gridSize);
+		frame.resetBoards();
+		frame.getShipPicker().reset();
 	}
 
 	public void placeAllBoatsAI(ArrayList<Boat> boats) {

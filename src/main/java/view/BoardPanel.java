@@ -20,19 +20,33 @@ public class BoardPanel extends JPanel implements CellUpdatedObserver {
 	private final BoardCell[][]	cells;
 	private final JLabel		nametag;
 
+	private BoardCellFactory	factory;
+
+	private int					gridSize;
+
+	private JPanel				holder;
+
 	public BoardPanel(String name, int gridSize, BoardCellFactory factory) {
 		cells = new BoardCell[gridSize][gridSize];
 		nametag = new JLabel(name);
+		this.gridSize = gridSize;
+		this.factory = factory;
 		setLayout(new BorderLayout());
 		add(nametag);
-		JPanel holder = new JPanel();
+		setSize(gridSize * buttonSize, gridSize * buttonSize);
+		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		holder = new JPanel();
 		add(holder, BorderLayout.SOUTH);
 		holder.setLayout(new GridBagLayout());
+		resetBoard();
+		validate();
+	}
+
+	public void resetBoard() {
+		holder.removeAll();
 		GridBagConstraints c = new GridBagConstraints();
 		c.weightx = 1 / gridSize;
 		c.weighty = 1 / (gridSize + 1);
-		setSize(gridSize * buttonSize, gridSize * buttonSize);
-		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		for (int x = 0; x < gridSize; x++) {
 			for (int y = 0; y < gridSize; y++) {
 				BoardCell b = factory.createCell(x, y, buttonSize);
@@ -41,7 +55,7 @@ public class BoardPanel extends JPanel implements CellUpdatedObserver {
 				holder.add(b, c);
 			}
 		}
-		validate();
+		holder.revalidate();
 	}
 
 	public BoardCell getCell(int x, int y) throws DomainException {

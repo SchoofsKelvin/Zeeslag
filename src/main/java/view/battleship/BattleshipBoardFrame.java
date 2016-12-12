@@ -3,17 +3,19 @@ package view.battleship;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.battleship.BattleshipGame;
+import model.GameResettedListener;
+import model.GameStartedListener;
 import view.BoardCellFactory;
 import view.BoardFrame;
 
 public final class BattleshipBoardFrame extends BoardFrame {
 
-	private static final long	serialVersionUID	= -2458982237956517265L;
+	private static final long			serialVersionUID	= -2458982237956517265L;
 
-	private ShipPickerPanel		picker;
+	private ShipPickerPanel				picker;
 
-	private List<GameStartedListener> listeners = new ArrayList<>();
+	private List<GameStartedListener>	startListeners		= new ArrayList<>();
+	private List<GameResettedListener>	resetListeners		= new ArrayList<>();
 
 	public BattleshipBoardFrame(int gridSize, BoardCellFactory factory1,
 		BoardCellFactory factory2) {
@@ -29,15 +31,30 @@ public final class BattleshipBoardFrame extends BoardFrame {
 	public ShipPickerPanel getShipPicker() {
 		return picker;
 	}
-	
-	public void addGameStartedListener(GameStartedListener gamelistener){
-		listeners.add(gamelistener);
+
+	public void addGameStartedListener(GameStartedListener gamelistener) {
+		startListeners.add(gamelistener);
 	}
-	
-	public void fireGameStarted(){
-		for(GameStartedListener listener: listeners){
+
+	public void addGameResettedListener(GameResettedListener gamelistener) {
+		resetListeners.add(gamelistener);
+	}
+
+	public void fireGameStarted() {
+		for (GameStartedListener listener : startListeners) {
 			listener.gameStarted();
 		}
+	}
+
+	public void fireGameResetted() {
+		for (GameResettedListener listener : resetListeners) {
+			listener.gameResetted();
+		}
+	}
+
+	public void resetBoards() {
+		left.resetBoard();
+		right.resetBoard();
 	}
 
 }
