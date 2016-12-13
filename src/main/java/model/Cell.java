@@ -15,5 +15,9 @@ public class Cell {
 		Cell c = (Cell) cell;
 		return x == c.x && y == c.y;
 	}
+	
+	public int hashCode(){
+		return x%13+y%13;
+	}
 
 }
