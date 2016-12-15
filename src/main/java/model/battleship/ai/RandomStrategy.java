@@ -8,15 +8,15 @@ import model.battleship.Boat;
 
 public class RandomStrategy implements Strategy {
 
-	public static final StrategyFactory	factory	= new StrategyFactory("Random Strategy") {
+	public static final StrategyFactory factory = new StrategyFactory("Random Strategy") {
 
-													@Override
-													public Strategy create() {
-														return new RandomStrategy();
-													}
-												};
+		@Override
+		public Strategy create() {
+			return new RandomStrategy();
+		}
+	};
 
-	private final static Random			random	= new Random();
+	private final static Random random = new Random();
 
 	@Override
 	public void placeBoats(BattleshipBoard board) {
