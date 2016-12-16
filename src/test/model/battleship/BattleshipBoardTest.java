@@ -1,6 +1,8 @@
 package model.battleship;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +11,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 import model.Cell;
 import model.Player;
+import model.battleship.BattleshipBoard;
+import model.battleship.BattleshipCell;
+import model.battleship.BattleshipGame;
+import model.battleship.Boat;
 
 public class BattleshipBoardTest {
 private BattleshipCell valid,unvalid;
