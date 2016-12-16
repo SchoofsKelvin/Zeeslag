@@ -1,6 +1,6 @@
 package model.battleship;
 
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 import exception.DomainException;
 import model.Player;
@@ -38,7 +38,7 @@ public class BattleshipGame {
 				return null;
 		}
 	}
-	
+
 	public Player getInActivePlayer() {
 		switch (turn) {
 			case Player1:
@@ -57,16 +57,15 @@ public class BattleshipGame {
 		boolean leTurn = turn == TurnState.Player1;
 		BattleshipBoard board = leTurn ? board2 : board1;
 		BattleshipCell cell = board.getCell(x, y);
-		if (cell.isShot()){
-			return false;
-		}
+		if (cell.isShot()) return false;
 		cell.setShot(true);
-		if (cell.hasBoat()){
+		if (cell.hasBoat()) {
 			getInActivePlayer().addDestroyedCell();
 			uis.updateScore();
 		}
 		board.fireCellUpdated(x, y);
 		turn = turn == TurnState.Player1 ? TurnState.Player2 : TurnState.Player1;
+		checkForGameOver();
 		checkForAI();
 		return true;
 	}
@@ -76,6 +75,20 @@ public class BattleshipGame {
 		if (player instanceof AI) {
 			((AI) player).doTurn(this);
 		}
+	}
+
+	private void checkForGameOver() {
+		if (board1.noShipsLeft()) {
+			playerWon(player2);
+		} else if (board2.noShipsLeft()) {
+			playerWon(player1);
+		}
+	}
+
+	private void playerWon(Player player) {
+		turn = TurnState.Finished;
+		JOptionPane.showMessageDialog(null, "Game over!\n" + player.getName() + " won met "
+			+ player.getScore() + " punten...");
 	}
 
 	public TurnState getTurn() {

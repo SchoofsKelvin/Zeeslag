@@ -8,8 +8,9 @@ import model.battleship.BattleshipGame.TurnState;
 
 public class BattleshipBoard extends Board {
 
-	public final BattleshipGame	game; 
+	public final BattleshipGame	game;
 	public final Player			player;
+	private final PlacedBoat[]	boats	= new PlacedBoat[5];
 
 	public BattleshipBoard(BattleshipGame game, Player player) {
 		this.game = game;
@@ -29,8 +30,8 @@ public class BattleshipBoard extends Board {
 
 	public void clickedCell(int x, int y, boolean other) throws DomainException {
 		TurnState turn = game.getTurn();
-		if (turn == TurnState.Starting && other) return;
-		if (turn != TurnState.Starting && (game.getActivePlayer().equals(player) == other))
+		if (turn == TurnState.Starting && other || turn == TurnState.Finished) return;
+		if (turn != TurnState.Starting && game.getActivePlayer().equals(player) == other)
 			return;
 		BattleshipCell cell = getCell(x, y);
 		if (other) {
@@ -65,11 +66,24 @@ public class BattleshipBoard extends Board {
 	}
 
 	public void placeBoat(Boat boat, boolean horizontal, BattleshipCell cell) {
-		PlacedBoat placedBoat = new PlacedBoat(cell.x,cell.y, boat, horizontal,this);
-		for(BattleshipCell c : placedBoat.getCells()){
+		PlacedBoat placedBoat = new PlacedBoat(cell.x, cell.y, boat, horizontal, this);
+		for (BattleshipCell c : placedBoat.getCells()) {
 			c.setBoat(placedBoat);
 			fireCellUpdated(c.x, c.y);
 		}
+		for (int i = 0; i < boats.length; i++) {
+			if (boats[i] == null) {
+				boats[i] = placedBoat;
+				return;
+			}
+		}
+	}
+
+	public boolean noShipsLeft() {
+		for (PlacedBoat b : boats) {
+			if ( !b.isDead()) return false;
+		}
+		return true;
 	}
 
 }
