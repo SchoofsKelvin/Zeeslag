@@ -8,7 +8,7 @@ import model.battleship.BattleshipGame.TurnState;
 
 public class BattleshipBoard extends Board {
 
-	public final BattleshipGame	game;
+	public final BattleshipGame	game; 
 	public final Player			player;
 
 	public BattleshipBoard(BattleshipGame game, Player player) {

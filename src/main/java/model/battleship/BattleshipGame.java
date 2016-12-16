@@ -38,6 +38,17 @@ public class BattleshipGame {
 				return null;
 		}
 	}
+	
+	public Player getInActivePlayer() {
+		switch (turn) {
+			case Player1:
+				return player2;
+			case Player2:
+				return player1;
+			default:
+				return null;
+		}
+	}
 
 	public boolean shoot(int x, int y) throws DomainException {
 		if (x < 0 || x >= gridSize) return false;
@@ -46,8 +57,14 @@ public class BattleshipGame {
 		boolean leTurn = turn == TurnState.Player1;
 		BattleshipBoard board = leTurn ? board2 : board1;
 		BattleshipCell cell = board.getCell(x, y);
-		if (cell.isShot()) return false;
+		if (cell.isShot()){
+			return false;
+		}
 		cell.setShot(true);
+		if (cell.hasBoat()){
+			getInActivePlayer().addDestroyedCell();
+			uis.updateScore();
+		}
 		board.fireCellUpdated(x, y);
 		turn = turn == TurnState.Player1 ? TurnState.Player2 : TurnState.Player1;
 		checkForAI();
