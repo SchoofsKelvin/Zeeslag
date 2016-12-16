@@ -90,23 +90,4 @@ public class BattleshipGame {
 		uis.reset();
 	}
 
-	public void placeAllBoatsAI(ArrayList<Boat> boats) {
-		for (int i = 0; i < 5; i++) {
-			Boat boat = boats.get((int) (boats.size() * Math.random()));
-			boats.remove(boat);
-
-			BattleshipBoard board = this.board2;
-
-			int size = board.getGridSize();
-
-			double x = size * Math.random();
-			double y = size * Math.random();
-			double direction = Math.random();
-			boolean horizontal = direction < 0.5;
-			BattleshipCell cell = board.getCell((int) x, (int) y);
-			if ( !board.canPlaceBoat(boat, horizontal, cell)) return;
-			board.placeBoat(boat, horizontal, cell);
-		}
-	}
-
 }

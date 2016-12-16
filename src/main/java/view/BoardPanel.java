@@ -44,8 +44,8 @@ public class BoardPanel extends JPanel {
 	public void resetBoard() {
 		holder.removeAll();
 		GridBagConstraints c = new GridBagConstraints();
-		c.weightx = 1 / gridSize;
-		c.weighty = 1 / (gridSize + 1);
+		c.weightx = 1.0 / gridSize;
+		c.weighty = 1.0 / (gridSize + 1);
 		for (int x = 0; x < gridSize; x++) {
 			for (int y = 0; y < gridSize; y++) {
 				BoardCell b = factory.createCell(x, y, buttonSize);
