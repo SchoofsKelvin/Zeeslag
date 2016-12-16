@@ -61,10 +61,12 @@ public class UserInterfaceService {
 	}
 
 	public CellColor calculateCellColor(BattleshipCell cell, boolean other) {
-		if (cell.isShot())
+		if (cell.hasDeadBoat())
+			return CellColor.Dead;
+		else if (cell.isShot())
 			return cell.hasBoat() ? CellColor.Hit : CellColor.Shot;
 		else
-			return cell.hasBoat() && !other ? CellColor.Boat : CellColor.Empty;
+			return (cell.hasBoat() && !other) ? CellColor.Boat : CellColor.Empty;
 	}
 
 }
