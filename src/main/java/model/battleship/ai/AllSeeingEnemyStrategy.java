@@ -6,14 +6,13 @@ import model.battleship.BattleshipGame;
 
 public class AllSeeingEnemyStrategy extends RandomStrategy {
 
-	public static final StrategyFactory factory =
-		new StrategyFactory("All Seeing Enemy Strategy") {
+	public static final StrategyFactory factory = new StrategyFactory("All Seeing Enemy Strategy") {
 
-			@Override
-			public Strategy create() {
-				return new AllSeeingEnemyStrategy();
-			}
-		};
+		@Override
+		public Strategy create() {
+			return new AllSeeingEnemyStrategy();
+		}
+	};
 
 	@Override
 	public void doTurn(BattleshipGame game) {
@@ -23,7 +22,8 @@ public class AllSeeingEnemyStrategy extends RandomStrategy {
 			for (int y = 0; y < size; y++) {
 				BattleshipCell cell = board.getCell(x, y);
 				if (cell.hasBoat() && !cell.isShot()) {
-					if (game.shoot(x, y)) return;
+					if (game.shoot(x, y))
+						return;
 				}
 			}
 		}

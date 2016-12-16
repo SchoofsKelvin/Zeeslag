@@ -24,6 +24,7 @@ public class BattleshipCell extends Cell {
 		} else {
 			state = boat ? BattleshipCellState.BOAT : BattleshipCellState.EMPTY;
 		}
+		
 	}
 
 	public void setShot(boolean shot) {

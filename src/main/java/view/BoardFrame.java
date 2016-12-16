@@ -43,6 +43,7 @@ public class BoardFrame extends JFrame {
 	}
 
 	/**
+	 * @author Surendra
 	 * Using setSize() you can give the size of frame you
 	 * want but if you use pack(), it will automatically change the size of the
 	 * frames according to the size of components in it. It will not consider

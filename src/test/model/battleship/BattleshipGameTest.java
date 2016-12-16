@@ -1,17 +1,15 @@
 package model.battleship;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
+import model.Cell;
 import model.Player;
-import model.battleship.BattleshipBoard;
-import model.battleship.BattleshipCell;
-import model.battleship.BattleshipGame;
-import model.battleship.Boat;
+import model.battleship.BattleshipGame.TurnState;
 import model.battleship.ai.RandomStrategy;
 
 public class BattleshipGameTest {
