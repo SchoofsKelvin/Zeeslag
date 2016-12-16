@@ -13,7 +13,7 @@
   </class>  
   <class id="2" language="java" name="model.Player" project="Zeeslag" file="/Zeeslag/src/main/java/model/Player.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1564" y="157"/>    
+    <position height="-1" width="-1" x="1518" y="191"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -76,7 +76,7 @@
   </enumeration>  
   <enumeration id="9" language="java" name="model.battleship.Boat" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/Boat.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="342" y="1700"/>    
+    <position height="-1" width="-1" x="342" y="1604"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -110,16 +110,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="model.battleship.ai.FollowUpStrategy.GoodHit" project="Zeeslag" 
-    file="/Zeeslag/src/main/java/model/battleship/ai/FollowUpStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2033" y="1108"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="14" language="java" name="model.battleship.ai.Strategy.StrategyFactory" project="Zeeslag" 
+  <class id="13" language="java" name="model.battleship.ai.Strategy.StrategyFactory" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/Strategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1921" y="675"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -128,7 +119,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="model.battleship.ai.AllSeeingEnemyStrategy" project="Zeeslag" 
+  <class id="14" language="java" name="model.battleship.ai.AllSeeingEnemyStrategy" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/AllSeeingEnemyStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2366" y="661"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -137,7 +128,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="16" language="java" name="model.battleship.ai.Strategy" project="Zeeslag" 
+  <interface id="15" language="java" name="model.battleship.ai.Strategy" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/Strategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1905" y="428"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -146,7 +137,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="17" language="java" name="model.battleship.ai.AI" project="Zeeslag" 
+  <class id="16" language="java" name="model.battleship.ai.AI" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/AI.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1909" y="243"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -155,7 +146,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="18" language="java" name="model.listener.GameStartedListener" project="Zeeslag" 
+  <interface id="17" language="java" name="model.listener.GameStartedListener" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/listener/GameStartedListener.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-991" y="1091"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -164,7 +155,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="19" language="java" name="model.listener.GameResettedListener" project="Zeeslag" 
+  <interface id="18" language="java" name="model.listener.GameResettedListener" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/listener/GameResettedListener.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-531" y="1113"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -173,7 +164,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="20" language="java" name="model.listener.CellUpdatedObserver" project="Zeeslag" 
+  <interface id="19" language="java" name="model.listener.CellUpdatedObserver" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/listener/CellUpdatedObserver.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="928" y="1496"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -182,7 +173,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="21" language="java" name="model.listener.CellClickedListener" project="Zeeslag" 
+  <interface id="20" language="java" name="model.listener.CellClickedListener" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/listener/CellClickedListener.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-602" y="1944"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -191,7 +182,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="22" language="java" name="view.BoardCellFactory" project="Zeeslag" 
+  <interface id="21" language="java" name="view.BoardCellFactory" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/BoardCellFactory.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-1054" y="1746"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -200,7 +191,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="23" language="java" name="view.BoardFrame" project="Zeeslag" 
+  <class id="22" language="java" name="view.BoardFrame" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/BoardFrame.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-765" y="1304"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -209,7 +200,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="view.BoardCell" project="Zeeslag" 
+  <class id="23" language="java" name="view.BoardCell" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/BoardCell.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-679" y="1785"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -218,7 +209,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="view.BoardPanel" project="Zeeslag" 
+  <class id="24" language="java" name="view.BoardPanel" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/BoardPanel.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-800" y="1558"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -227,7 +218,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="26" language="java" name="view.battleship.CellColor" project="Zeeslag" 
+  <enumeration id="25" language="java" name="view.battleship.CellColor" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/battleship/CellColor.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-612" y="267"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -236,7 +227,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="27" language="java" name="view.battleship.BattleshipApp" project="Zeeslag" 
+  <class id="26" language="java" name="view.battleship.BattleshipApp" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/battleship/BattleshipApp.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-426" y="245"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -245,7 +236,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="view.battleship.BattleshipBoardCell" project="Zeeslag" 
+  <class id="27" language="java" name="view.battleship.BattleshipBoardCell" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/battleship/BattleshipBoardCell.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-1028" y="1903"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -254,7 +245,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="29" language="java" name="view.battleship.BattleshipMenu" project="Zeeslag" 
+  <class id="28" language="java" name="view.battleship.BattleshipMenu" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/battleship/BattleshipMenu.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1594" y="671"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -263,7 +254,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="30" language="java" name="view.battleship.ShipPickerPanel" project="Zeeslag" 
+  <class id="29" language="java" name="view.battleship.ShipPickerPanel" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/battleship/ShipPickerPanel.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-263" y="776"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -272,7 +263,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="31" language="java" name="view.battleship.ShipPickerPanel.BoatStock" project="Zeeslag" 
+  <class id="30" language="java" name="view.battleship.ShipPickerPanel.BoatStock" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/battleship/ShipPickerPanel.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-93" y="1099"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -281,7 +272,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="32" language="java" name="view.battleship.UserInterfaceService" project="Zeeslag" 
+  <class id="31" language="java" name="view.battleship.UserInterfaceService" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/battleship/UserInterfaceService.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-725" y="519"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -290,7 +281,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="33" language="java" name="view.battleship.BattleshipBoardFrame" project="Zeeslag" 
+  <class id="32" language="java" name="view.battleship.BattleshipBoardFrame" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/battleship/BattleshipBoardFrame.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-730" y="878"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -299,7 +290,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="34" language="java" name="exception.DomainException" project="Zeeslag" 
+  <class id="33" language="java" name="exception.DomainException" project="Zeeslag" 
     file="/Zeeslag/src/main/java/exception/DomainException.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-857" y="243"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -308,318 +299,443 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="35">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="36" name="factory"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="39" name="cell"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="42" name="player2"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="44">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="45" name="uis"/>      
-      <multiplicity id="46" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="32" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="47">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="48" name="boat"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="50">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="51" name="resetListeners"/>      
-      <multiplicity id="52" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="53">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="54">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="55" name="factory"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="57">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="16"/>  
-  </realization>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <nesting id="59">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="13"/>  
-  </nesting>  
-  <association id="60">    
-    <end type="SOURCE" refId="29" navigable="false">      
-      <attribute id="61" name="strategies"/>      
-      <multiplicity id="62" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="64" name="board1"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="66">    
-    <end type="SOURCE" refId="28" navigable="false">      
-      <attribute id="67" name="listener"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="69">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="70" name="turn"/>      
-      <multiplicity id="71" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="72">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="73" name="board"/>      
-      <multiplicity id="74" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="75">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="24"/>  
-  </generalization>  
-  <association id="76">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="77" name="board2"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="79">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="80" name="cells"/>      
-      <multiplicity id="81" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="82">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="83" name="strategy"/>      
-      <multiplicity id="84" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="85">    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <association id="86">    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="87" name="boat"/>      
-      <multiplicity id="88" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="89">    
-    <end type="SOURCE" refId="15"/>    
+  <class id="34" language="java" name="model.battleship.ai.FollowUpStrategy.GoodHit" project="Zeeslag" 
+    file="/Zeeslag/src/main/java/model/battleship/ai/FollowUpStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2238" y="1032"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <nesting id="90">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="31"/>  
-  </nesting>  
-  <association id="91">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="92" name="game"/>      
-      <multiplicity id="93" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="94">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="95" name="observers"/>      
-      <multiplicity id="96" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="97">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="98" name="picker"/>      
-      <multiplicity id="99" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="30" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="100">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="101" name="right"/>      
-      <multiplicity id="102" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="103">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="104" name="game"/>      
-      <multiplicity id="105" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="106">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="107" name="state"/>      
-      <multiplicity id="108" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="109">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="8"/>  
-  </nesting>  
-  <association id="110">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="111" name="goodHit"/>      
-      <multiplicity id="112" minimum="0" maximum="1"/>    
+  <association id="36">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="37" name="factory">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="113">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="114" name="startListeners"/>      
-      <multiplicity id="115" minimum="0" maximum="2147483647"/>    
+  <generalization id="39">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <realization id="40">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <generalization id="41">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <association id="42">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="43" name="startListeners">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
+    <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="116">    
-    <end type="SOURCE" refId="30" navigable="false">      
-      <attribute id="117" name="stocks"/>      
-      <multiplicity id="118" minimum="0" maximum="2147483647"/>    
+  <association id="45">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="46" name="frame">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
+    <end type="TARGET" refId="32" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="119">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="120" name="left"/>      
-      <multiplicity id="121" minimum="0" maximum="1"/>    
+  <nesting id="48">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="8"/>  
+  </nesting>  
+  <association id="49">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="50" name="stocks">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
+    <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="122">    
+  <generalization id="52">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="53">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="54" name="factory">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="55" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="56">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="123" name="cells"/>      
-      <multiplicity id="124" minimum="0" maximum="2147483647"/>    
+      <attribute id="57" name="cells">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="58" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="125">    
+  <association id="59">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="60" name="player">        
+        <position height="0" width="0" x="-46" y="34"/>      
+      </attribute>      
+      <multiplicity id="61" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-46" y="34"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="62">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="22"/>  
+  </generalization>  
+  <association id="63">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="126" name="placedBoat"/>      
-      <multiplicity id="127" minimum="0" maximum="1"/>    
+      <attribute id="64" name="state">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="65" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="66">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="34"/>  
+  </nesting>  
+  <association id="67">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="68" name="right">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="69" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="71" name="observers">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="72" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="73">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="74">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="75" name="uis">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="76" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="77">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="78" name="strategies">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="79" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="80">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="81" name="listener">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="82" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="83">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="84" name="cells">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="85" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="87" name="resetListeners">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="88" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="89">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="90" name="board2">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="91" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="92">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="93" name="player1">        
+        <position height="0" width="0" x="-46" y="34"/>      
+      </attribute>      
+      <multiplicity id="94" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-46" y="34"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="95">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="96" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="97" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="98">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="99" name="factory">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="100" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="101">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="102" name="left">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="103" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="104">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="105" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="106" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="107">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="108" name="player2">        
+        <position height="0" width="0" x="-46" y="34"/>      
+      </attribute>      
+      <multiplicity id="109" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-46" y="34"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="110">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="111">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="112" name="board1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="113" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="114">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="115" name="board">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="116" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="117">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="30"/>  
+  </nesting>  
+  <association id="118">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="119" name="boat">        
+        <position height="0" width="0" x="0" y="-96"/>      
+      </attribute>      
+      <multiplicity id="120" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="-96"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="122" name="picker">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="123" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="124">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="125" name="boat">        
+        <position height="0" width="0" x="0" y="-96"/>      
+      </attribute>      
+      <multiplicity id="126" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="-96"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="128" name="goodHit"/>      
+      <multiplicity id="129" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="130">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="131" name="strategy">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="132" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="133">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="134" name="turn">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="135" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="136">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="13"/>  
+  </nesting>  
+  <association id="137">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="138" name="placedBoat">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="139" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="128">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="129" name="frame"/>      
-      <multiplicity id="130" minimum="0" maximum="1"/>    
+  <association id="140">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="141" name="factory">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="142" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
+    <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="131">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="132" name="player1"/>      
-      <multiplicity id="133" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="134">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="135">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <association id="136">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="137" name="player"/>      
-      <multiplicity id="138" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="139">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="140" name="factory"/>      
-      <multiplicity id="141" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="142">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="143" name="factory"/>      
-      <multiplicity id="144" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="145">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="14"/>  
-  </nesting>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
