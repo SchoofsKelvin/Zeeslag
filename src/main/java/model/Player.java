@@ -4,9 +4,9 @@ import exception.DomainException;
 
 public class Player {
 
-	private String	name;
-	private int		destroyedCells;
-	private final int score = 19;
+	private String		name;
+	private int			destroyedCells;
+	private final int	score	= 19;
 
 	public Player(String name) throws DomainException {
 		setName(name);
@@ -17,7 +17,7 @@ public class Player {
 		return name;
 	}
 
-	private void setName(String name) throws DomainException {
+	public void setName(String name) throws DomainException {
 		if (name == null || name.trim().isEmpty())
 			throw new DomainException("The name may not be empty or null");
 		this.name = name;
@@ -39,8 +39,8 @@ public class Player {
 	public void addDestroyedCell() {
 		this.destroyedCells++;
 	}
-	
-	public int getScore(){
+
+	public int getScore() {
 		return this.score - this.destroyedCells;
 	}
 

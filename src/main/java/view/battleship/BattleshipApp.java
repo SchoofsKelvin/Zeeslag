@@ -2,18 +2,22 @@ package view.battleship;
 
 import model.Player;
 import model.battleship.BattleshipGame;
-import model.battleship.ai.Strategy;
 
 public class BattleshipApp {
 
+	public static UserInterfaceController	uis;
+	public static BattleshipGame			game;
+
 	public static void main(String[] args) {
-		BattleshipMenu menu = new BattleshipMenu();
-		String name = menu.askPlayerName();
-		Strategy strat = menu.askStrategy();
 		try {
-			new BattleshipGame(new Player(name), strat);
+			game = new BattleshipGame(new Player("Player"));
+			uis = new UserInterfaceController(game);
+			game.getPlayer1().setName(uis.askPlayerName());
+			game.setInput(uis);
+			game.resetGame();
+			uis.setVisible(true);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 

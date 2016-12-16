@@ -20,10 +20,6 @@ public class BoardFrame extends JFrame {
 		add(left);
 		add(right);
 		addExtraLast();
-		setVisible(true);
-		validate();
-		pack();
-		setMinimumSize(getSize());
 	}
 
 	public BoardFrame(int gridSize, BoardCellFactory factory) {
@@ -42,18 +38,33 @@ public class BoardFrame extends JFrame {
 		right.setName(name);
 	}
 
+	@Override
+	public void setVisible(boolean b) {
+		super.setVisible(b);
+		validate();
+		pack();
+		setMinimumSize(getSize());
+	}
+
 	/**
 	 * @author Surendra
-	 * Using setSize() you can give the size of frame you
-	 * want but if you use pack(), it will automatically change the size of the
-	 * frames according to the size of components in it. It will not consider
-	 * the size you have mentioned earlier.don't use the this two method
-	 * together We have a Class Named Button which extends the java Jbutton
-	 * Class and implements the observer Interface ActionEventlistener Button
-	 * class is the observer. I've created the variable of instance ImageIcon,
-	 * if we click on grid the empty grid box will replace with the image. the
-	 * method actionPerformed will call, whenever the one grid box is clicked.
-	 * the method setIcon is called and replaced with the right image!
+	 *         Using setSize() you can give the size of frame you
+	 *         want but if you use pack(), it will automatically change the size
+	 *         of the
+	 *         frames according to the size of components in it. It will not
+	 *         consider
+	 *         the size you have mentioned earlier.don't use the this two method
+	 *         together We have a Class Named Button which extends the java
+	 *         Jbutton
+	 *         Class and implements the observer Interface ActionEventlistener
+	 *         Button
+	 *         class is the observer. I've created the variable of instance
+	 *         ImageIcon,
+	 *         if we click on grid the empty grid box will replace with the
+	 *         image. the
+	 *         method actionPerformed will call, whenever the one grid box is
+	 *         clicked.
+	 *         the method setIcon is called and replaced with the right image!
 	 */
 
 }

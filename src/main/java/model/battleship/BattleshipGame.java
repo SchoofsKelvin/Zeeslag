@@ -5,27 +5,26 @@ import javax.swing.JOptionPane;
 import exception.DomainException;
 import model.Player;
 import model.battleship.ai.AI;
-import model.battleship.ai.Strategy;
-import view.battleship.UserInterfaceService;
 
 public class BattleshipGame {
 
 	public final static int			gridSize	= 10;
 
-	public final Player				player1, player2;
+	private Player					player1, player2;
 	public final BattleshipBoard	board1, board2;
+	private BattleshipInput			input;
 
 	private TurnState				turn		= TurnState.Starting;
-	private UserInterfaceService	uis;
 
-	public BattleshipGame(Player player, Strategy strategy) throws DomainException {
-		AI AI = new AI(strategy);
+	public BattleshipGame(Player player) throws DomainException {
 		this.player1 = player;
-		this.player2 = AI;
+		this.player2 = new AI();
 		board1 = new BattleshipBoard(this, player1);
 		board2 = new BattleshipBoard(this, player2);
-		uis = new UserInterfaceService(this);
-		AI.placeBoats(board2);
+	}
+
+	public void setInput(BattleshipInput input) {
+		this.input = input;
 	}
 
 	public Player getActivePlayer() {
@@ -61,7 +60,7 @@ public class BattleshipGame {
 		cell.setShot(true);
 		if (cell.hasBoat()) {
 			getInActivePlayer().addDestroyedCell();
-			uis.updateScore();
+			input.updateScore();
 		}
 		board.fireCellUpdated(x, y);
 		turn = turn == TurnState.Player1 ? TurnState.Player2 : TurnState.Player1;
@@ -100,13 +99,14 @@ public class BattleshipGame {
 	}
 
 	public void placeBoat(Player player, BattleshipCell cell) {
-		if (uis.isFinishedPickingBoats()) return;
-		Boat boat = uis.getPickedBoat();
-		boolean horizontal = uis.isRotationHorizontal();
+		if (input.isFinishedPickingBoats()) return;
+		Boat boat = input.getPickedBoat();
+		System.out.println(boat);
+		boolean horizontal = input.isRotationHorizontal();
 		BattleshipBoard board = player.equals(player1) ? board1 : board2;
 		if ( !board.canPlaceBoat(boat, horizontal, cell)) return;
 		board.placeBoat(boat, horizontal, cell);
-		uis.removePickableBoat(boat);
+		input.removePickableBoat(boat);
 	}
 
 	public void startGame() {
@@ -119,7 +119,23 @@ public class BattleshipGame {
 		board2.resetBoard(gridSize);
 		player1.setDestroyedCells(0);
 		player2.setDestroyedCells(0);
-		uis.reset();
+		if (player2 instanceof AI) {
+			((AI) player2).placeBoats(board2);
+			((AI) player2).setStrategy(input.createStrategy());
+		}
+		input.reset();
+	}
+
+	public void setPlayer1(Player player) {
+		player1 = player;
+	}
+
+	public Player getPlayer1() {
+		return player1;
+	}
+
+	public Player getPlayer2() {
+		return player2;
 	}
 
 }

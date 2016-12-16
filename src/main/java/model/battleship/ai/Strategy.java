@@ -9,13 +9,13 @@ public interface Strategy {
 
 	public void doTurn(BattleshipGame game);
 
-	public static abstract class StrategyFactory {
+	public static abstract class StrategyBuilder {
 
 		private final String name;
 
-		public abstract Strategy create();
+		public abstract Strategy build();
 
-		public StrategyFactory(String name) {
+		public StrategyBuilder(String name) {
 			this.name = name;
 		}
 

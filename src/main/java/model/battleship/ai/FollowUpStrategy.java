@@ -8,10 +8,10 @@ import model.battleship.BattleshipGame;
 
 public class FollowUpStrategy extends RandomStrategy {
 
-	public static final StrategyFactory	factory	= new StrategyFactory("Follow up Strategy") {
+	public static final StrategyBuilder	builder	= new StrategyBuilder("Follow up Strategy") {
 
 													@Override
-													public Strategy create() {
+													public Strategy build() {
 														return new FollowUpStrategy();
 													}
 												};
