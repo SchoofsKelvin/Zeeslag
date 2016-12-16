@@ -117,6 +117,8 @@ public class BattleshipGame {
 		turn = TurnState.Starting;
 		board1.resetBoard(gridSize);
 		board2.resetBoard(gridSize);
+		player1.setDestroyedCells(0);
+		player2.setDestroyedCells(0);
 		uis.reset();
 	}
 
