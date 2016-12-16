@@ -49,17 +49,15 @@ public class FollowUpStrategy extends RandomStrategy {
 
 	private static class GoodHit {
 
-		private BattleshipCell	cell;
-		private int				dir		= 0;	// starting south,
-												// counterclockwise
-		private int				amount	= 1;
-		private boolean			knows	= false;
-		private boolean			found	= false;
-		private boolean			done	= false;
-		private int				x, y;
+		private int		dir		= 0;	// starting south,
+										// counterclockwise
+		private int		amount	= 1;
+		private boolean	knows	= false;
+		private boolean	found	= false;
+		private boolean	done	= false;
+		private int		x, y;
 
 		public GoodHit(BattleshipCell cell) {
-			this.cell = cell;
 			x = cell.x;
 			y = cell.y;
 		}
@@ -73,7 +71,7 @@ public class FollowUpStrategy extends RandomStrategy {
 		}
 
 		public boolean doTurn(BattleshipBoard board) {
-			if (cell.hasDeadBoat()) {
+			if (board.getCell(x, y).hasDeadBoat()) {
 				done = true;
 				return false;
 			}
