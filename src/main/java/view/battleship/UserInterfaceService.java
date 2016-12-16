@@ -1,6 +1,5 @@
 package view.battleship;
 
-import model.Player;
 import model.battleship.BattleshipCell;
 import model.battleship.BattleshipGame;
 import model.battleship.Boat;
@@ -50,6 +49,7 @@ public class UserInterfaceService {
 	public void reset() {
 		frame.resetBoards();
 		frame.getShipPicker().reset();
+		updateScore();
 	}
 
 	public void cellUpdated(int x, int y) {
@@ -69,8 +69,8 @@ public class UserInterfaceService {
 		else
 			return (cell.hasBoat() && !other) ? CellColor.Boat : CellColor.Empty;
 	}
-	
-	public void updateScore(){
+
+	public void updateScore() {
 		frame.setLeftName(game.player1.getName() + " (" + game.player1.getScore() + ")");
 		frame.setRightName(game.player2.getName() + " (" + game.player2.getScore() + ")");
 	}
