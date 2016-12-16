@@ -65,10 +65,6 @@ public class BattleshipGame {
 			getInActivePlayer().addDestroyedCell();
 			uis.updateScore();
 		}
-		// BoardPanel sender = leTurn ? frame.left : frame.right;
-		// BoardPanel victim = leTurn ? frame.right : frame.left;
-		// sender.updateCell(x, y);
-		// victim.updateCell(x, y);
 		board.fireCellUpdated(x, y);
 		turn = turn == TurnState.Player1 ? TurnState.Player2 : TurnState.Player1;
 		checkForAI();

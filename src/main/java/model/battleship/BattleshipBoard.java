@@ -65,23 +65,10 @@ public class BattleshipBoard extends Board {
 	}
 
 	public void placeBoat(Boat boat, boolean horizontal, BattleshipCell cell) {
-		int start_x = cell.x, end_x = cell.x;
-		int start_y = cell.y, end_y = cell.y;
-		if (horizontal) {
-			end_x += boat.length - 1;
-		} else {
-			end_y += boat.length - 1;
-		}
-		start_x = start_x < 0 ? 0 : start_x;
-		start_y = start_y < 0 ? 0 : start_y;
-		int size = getGridSize();
-		end_x = end_x > size ? size : end_x;
-		end_y = end_y > size ? size : end_y;
-		for (int x = start_x; x <= end_x; x++) {
-			for (int y = start_y; y <= end_y; y++) {
-				getCell(x, y).setBoat(true);
-				fireCellUpdated(x, y);
-			}
+		PlacedBoat placedBoat = new PlacedBoat(cell.x,cell.y, boat, horizontal,this);
+		for(BattleshipCell c : placedBoat.getCells()){
+			c.setBoat(placedBoat);
+			fireCellUpdated(c.x, c.y);
 		}
 	}
 
