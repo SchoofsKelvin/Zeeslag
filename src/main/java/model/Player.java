@@ -4,10 +4,13 @@ import exception.DomainException;
 
 public class Player {
 
-	private String name;
+	private String	name;
+	private int		destroyedCells;
+	private final int score = 19;
 
 	public Player(String name) throws DomainException {
 		setName(name);
+		setDestroyedCells(0);
 	}
 
 	public String getName() {
@@ -20,9 +23,25 @@ public class Player {
 		this.name = name;
 	}
 
+	public int getDestroyedCells() {
+		return this.destroyedCells;
+	}
+
+	public void setDestroyedCells(int s) {
+		this.destroyedCells = s;
+	}
+
 	@Override
 	public String toString() {
 		return "Player(\"" + name + "\")";
+	}
+
+	public void addDestroyedCell() {
+		this.destroyedCells++;
+	}
+	
+	public int getScore(){
+		return this.score - this.destroyedCells;
 	}
 
 }

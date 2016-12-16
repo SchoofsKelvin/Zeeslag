@@ -31,4 +31,12 @@ public class BattleshipGameTest {
 		game.startGame();
 		assertTrue(game.shoot(3, 3));
 	}
+	
+	@Test
+	public void getScore_returns_correct_score(){
+		game.startGame();
+		assertEquals(game.player1.getScore(), 19);game.player1.getScore();
+		game.player2.setDestroyedCells(5);
+		assertEquals(game.player2.getScore(), 14);
+	}
 }

@@ -1,5 +1,6 @@
 package view.battleship;
 
+import model.Player;
 import model.battleship.BattleshipCell;
 import model.battleship.BattleshipGame;
 import model.battleship.Boat;
@@ -16,8 +17,8 @@ public class UserInterfaceService {
 				(x1, y1) -> game.board1.clickedCell(x1, y1, false)),
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize,
 				(x1, y1) -> game.board2.clickedCell(x1, y1, true)));
-		frame.setLeftName(game.player1.getName());
-		frame.setRightName(game.player2.getName());
+		frame.setLeftName(game.player1.getName() + " (" + game.player1.getScore() + ")");
+		frame.setRightName(game.player2.getName() + " (" + game.player2.getScore() + ")");
 		frame.addGameStartedListener(game::startGame);
 		frame.addGameResettedListener(game::resetGame);
 		// game.board1.addObserver(frame.left);
@@ -65,6 +66,11 @@ public class UserInterfaceService {
 			return cell.hasBoat() ? CellColor.Hit : CellColor.Shot;
 		else
 			return cell.hasBoat() && !other ? CellColor.Boat : CellColor.Empty;
+	}
+	
+	public void updateScore(){
+		frame.setLeftName(game.player1.getName() + " (" + game.player1.getScore() + ")");
+		frame.setRightName(game.player2.getName() + " (" + game.player2.getScore() + ")");
 	}
 
 }
