@@ -4,7 +4,7 @@
   router="FAN">  
   <class id="1" language="java" name="model.Cell" project="Zeeslag" file="/Zeeslag/src/main/java/model/Cell.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1244" y="245"/>    
+    <position height="-1" width="-1" x="1238" y="1341"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -13,7 +13,7 @@
   </class>  
   <class id="2" language="java" name="model.Player" project="Zeeslag" file="/Zeeslag/src/main/java/model/Player.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="116" y="831"/>    
+    <position height="-1" width="-1" x="1564" y="157"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -22,7 +22,7 @@
   </class>  
   <class id="3" language="java" name="model.Board" project="Zeeslag" file="/Zeeslag/src/main/java/model/Board.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="831" y="257"/>    
+    <position height="-1" width="-1" x="893" y="1241"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -31,7 +31,7 @@
   </class>  
   <enumeration id="4" language="java" name="model.battleship.BattleshipCellState" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/BattleshipCellState.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1519" y="474"/>    
+    <position height="-1" width="-1" x="1355" y="1890"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -40,7 +40,7 @@
   </enumeration>  
   <class id="5" language="java" name="model.battleship.BattleshipBoard" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/BattleshipBoard.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="605" y="524"/>    
+    <position height="-1" width="-1" x="625" y="904"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -49,7 +49,7 @@
   </class>  
   <class id="6" language="java" name="model.battleship.PlacedBoat" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/PlacedBoat.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="933" y="769"/>    
+    <position height="-1" width="-1" x="615" y="1693"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -76,7 +76,7 @@
   </enumeration>  
   <enumeration id="9" language="java" name="model.battleship.Boat" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/Boat.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="958" y="1048"/>    
+    <position height="-1" width="-1" x="342" y="1700"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -85,7 +85,7 @@
   </enumeration>  
   <class id="10" language="java" name="model.battleship.BattleshipCell" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/BattleshipCell.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1219" y="479"/>    
+    <position height="-1" width="-1" x="1347" y="1607"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -94,7 +94,7 @@
   </class>  
   <class id="11" language="java" name="model.battleship.ai.FollowUpStrategy" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/FollowUpStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="734" y="1623"/>    
+    <position height="-1" width="-1" x="2648" y="839"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -103,7 +103,7 @@
   </class>  
   <class id="12" language="java" name="model.battleship.ai.RandomStrategy" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/RandomStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="745" y="1197"/>    
+    <position height="-1" width="-1" x="2405" y="445"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -112,7 +112,7 @@
   </class>  
   <class id="13" language="java" name="model.battleship.ai.FollowUpStrategy.GoodHit" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/FollowUpStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1059" y="1504"/>    
+    <position height="-1" width="-1" x="2033" y="1108"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -121,7 +121,7 @@
   </class>  
   <class id="14" language="java" name="model.battleship.ai.Strategy.StrategyFactory" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/Strategy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="211" y="1493"/>    
+    <position height="-1" width="-1" x="1921" y="675"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -130,7 +130,7 @@
   </class>  
   <class id="15" language="java" name="model.battleship.ai.AllSeeingEnemyStrategy" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/AllSeeingEnemyStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="574" y="1457"/>    
+    <position height="-1" width="-1" x="2366" y="661"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -139,7 +139,7 @@
   </class>  
   <interface id="16" language="java" name="model.battleship.ai.Strategy" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/Strategy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="231" y="1192"/>    
+    <position height="-1" width="-1" x="1905" y="428"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -148,7 +148,7 @@
   </interface>  
   <class id="17" language="java" name="model.battleship.ai.AI" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/battleship/ai/AI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="375" y="971"/>    
+    <position height="-1" width="-1" x="1909" y="243"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -175,7 +175,7 @@
   </interface>  
   <interface id="20" language="java" name="model.listener.CellUpdatedObserver" project="Zeeslag" 
     file="/Zeeslag/src/main/java/model/listener/CellUpdatedObserver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="494" y="208"/>    
+    <position height="-1" width="-1" x="928" y="1496"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -256,7 +256,7 @@
   </class>  
   <class id="29" language="java" name="view.battleship.BattleshipMenu" project="Zeeslag" 
     file="/Zeeslag/src/main/java/view/battleship/BattleshipMenu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-220" y="1469"/>    
+    <position height="-1" width="-1" x="1594" y="671"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
