@@ -45,5 +45,5 @@ public class BattleshipCell extends Cell {
 	public boolean hasDeadBoat() {
 		return hasBoat() && placedBoat.isDead();
 	}
-
+	
 }
