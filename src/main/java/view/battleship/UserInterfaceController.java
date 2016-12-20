@@ -52,14 +52,10 @@ public class UserInterfaceController implements BattleshipInput {
 			game.getPlayer1().getName() + " (" + game.getPlayer1().getScore() + ")");
 		frame.setRightName(
 			game.getPlayer2().getName() + " (" + game.getPlayer2().getScore() + ")");
-		frame.addGameStartedListener(game::startGame);
-		frame.addGameResettedListener(game::resetGame);
-		game.board1.addObserver(this::cellUpdated);
-		game.board2.addObserver(this::cellUpdated);
-	}
-
-	public BattleshipGame getGame() {
-		return game;
+		frame.addGameStartedListener(game::startGame); // BattleshipBoardFrame > BattleshipGame
+		frame.addGameResettedListener(game::resetGame); // BattleshipBoardFrame > BattleshipGame
+		game.board1.addObserver(this::cellUpdated); // BattleshipBoard > UserInterfaceController
+		game.board2.addObserver(this::cellUpdated); // BattleshipBoard > UserInterfaceController
 	}
 
 	@Override
