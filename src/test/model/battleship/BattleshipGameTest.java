@@ -22,7 +22,7 @@ public class BattleshipGameTest {
 	@Before
 	public void setUp() {
 		initMocks(this);
-		this.game = new BattleshipGame(new Player("player"), new RandomStrategy());
+		this.game = new BattleshipGame(new Player("player"));
 	}
 
 	@Test
