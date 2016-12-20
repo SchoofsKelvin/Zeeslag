@@ -48,14 +48,12 @@ public class UserInterfaceController implements BattleshipInput {
 				(x1, y1) -> game.board1.clickedCell(x1, y1, false)),
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize,
 				(x1, y1) -> game.board2.clickedCell(x1, y1, true)));
-		frame.setLeftName(
-			game.getPlayer1().getName() + " (" + game.getPlayer1().getScore() + ")");
-		frame.setRightName(
-			game.getPlayer2().getName() + " (" + game.getPlayer2().getScore() + ")");
-		frame.addGameStartedListener(game::startGame); // BattleshipBoardFrame > BattleshipGame
-		frame.addGameResettedListener(game::resetGame); // BattleshipBoardFrame > BattleshipGame
-		game.board1.addObserver(this::cellUpdated); // BattleshipBoard > UserInterfaceController
-		game.board2.addObserver(this::cellUpdated); // BattleshipBoard > UserInterfaceController
+		frame.setLeftName(game.player1.getName() + " (" + game.player1.getScore() + ")");
+		frame.setRightName(game.player2.getName() + " (" + game.player2.getScore() + ")");
+		frame.addGameStartedListener(game::startGame);
+		frame.addGameResettedListener(game::resetGame);
+		game.board1.addObserver(this::cellUpdated);
+		game.board2.addObserver(this::cellUpdated);
 	}
 
 	@Override
@@ -105,10 +103,8 @@ public class UserInterfaceController implements BattleshipInput {
 
 	@Override
 	public void updateScore() {
-		frame.setLeftName(
-			game.getPlayer1().getName() + " (" + game.getPlayer1().getScore() + ")");
-		frame.setRightName(
-			game.getPlayer2().getName() + " (" + game.getPlayer2().getScore() + ")");
+		frame.setLeftName(game.player1.getName() + " (" + game.player1.getScore() + ")");
+		frame.setRightName(game.player2.getName() + " (" + game.player2.getScore() + ")");
 	}
 
 	@Override

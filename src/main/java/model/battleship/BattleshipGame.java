@@ -10,7 +10,7 @@ public class BattleshipGame {
 
 	public final static int			gridSize	= 10;
 
-	private Player					player1, player2;
+	public final Player				player1, player2;
 	public final BattleshipBoard	board1, board2;
 	private BattleshipInput			input;
 
@@ -124,18 +124,6 @@ public class BattleshipGame {
 			((AI) player2).setStrategy(input.createStrategy());
 		}
 		input.reset();
-	}
-
-	public void setPlayer1(Player player) {
-		player1 = player;
-	}
-
-	public Player getPlayer1() {
-		return player1;
-	}
-
-	public Player getPlayer2() {
-		return player2;
 	}
 
 }

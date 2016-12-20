@@ -12,7 +12,7 @@ public class BattleshipApp {
 		try {
 			game = new BattleshipGame(new Player("Player"));
 			uis = new UserInterfaceController(game);
-			game.getPlayer1().setName(uis.askPlayerName());
+			game.player1.setName(uis.askPlayerName());
 			game.setInput(uis);
 			game.resetGame();
 			uis.setVisible(true);
