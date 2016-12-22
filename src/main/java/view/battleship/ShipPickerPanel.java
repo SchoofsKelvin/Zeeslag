@@ -6,8 +6,9 @@ import java.awt.GridLayout;
 import javax.swing.*;
 
 import model.battleship.Boat;
+import model.listener.GameReadyChangedListener;
 
-public class ShipPickerPanel extends JPanel {
+public class ShipPickerPanel extends JPanel implements GameReadyChangedListener {
 
 	private static final long				serialVersionUID	= 1L;
 
@@ -51,7 +52,6 @@ public class ShipPickerPanel extends JPanel {
 		start.setEnabled(false);
 		start.addActionListener(e -> {
 			frame.fireGameStarted();
-			start.setEnabled(false);
 		});
 		start.setPreferredSize(new Dimension(200, 50));
 
@@ -82,9 +82,6 @@ public class ShipPickerPanel extends JPanel {
 				amount++;
 				box.repaint();
 			}
-		}
-		if (isFinished()) {
-			start.setEnabled(true);
 		}
 	}
 
@@ -123,5 +120,10 @@ public class ShipPickerPanel extends JPanel {
 		public String toString() {
 			return boat.toString() + " " + stock + "x";
 		}
+	}
+
+	@Override
+	public void gameReadyChanged(boolean player1, boolean player2) {
+		start.setEnabled(player1 && player2);
 	}
 }

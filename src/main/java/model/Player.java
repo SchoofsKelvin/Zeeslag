@@ -13,6 +13,10 @@ public class Player {
 		setDestroyedCells(0);
 	}
 
+	public Player() {
+		this("Nameless");
+	}
+
 	public String getName() {
 		return name;
 	}

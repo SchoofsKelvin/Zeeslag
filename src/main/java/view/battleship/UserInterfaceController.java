@@ -8,10 +8,8 @@ import java.util.Properties;
 
 import javax.swing.JOptionPane;
 
-import model.battleship.BattleshipCell;
-import model.battleship.BattleshipGame;
-import model.battleship.BattleshipInput;
-import model.battleship.Boat;
+import model.Player;
+import model.battleship.*;
 import model.battleship.ai.AllSeeingEnemyStrategy;
 import model.battleship.ai.FollowUpStrategy;
 import model.battleship.ai.RandomStrategy;
@@ -25,11 +23,12 @@ public class UserInterfaceController implements BattleshipInput {
 
 	private final ArrayList<StrategyBuilder>	strategies	= new ArrayList<>();
 	private final Properties					props;
+	private final boolean						isFirstPlayer;
 	private StrategyBuilder						strategy;
 	private static final File					file		=
 		new File("battleship.properties");
 
-	public UserInterfaceController(BattleshipGame game) {
+	public UserInterfaceController(BattleshipGame game, boolean isFirstPlayer) {
 		props = new Properties();
 		if (file.exists()) {
 			try {
@@ -41,17 +40,22 @@ public class UserInterfaceController implements BattleshipInput {
 		addStrategyFactory(RandomStrategy.builder);
 		addStrategyFactory(FollowUpStrategy.builder);
 		addStrategyFactory(AllSeeingEnemyStrategy.builder);
-		strategy = askStrategy();
 		this.game = game;
+		this.isFirstPlayer = isFirstPlayer;
+		BattleshipBoard leftBoard = isFirstPlayer ? game.board1 : game.board2;
+		BattleshipBoard rightBoard = isFirstPlayer ? game.board2 : game.board1;
+		Player leftPlayer = isFirstPlayer ? game.player1 : game.player2;
+		Player rightPlayer = isFirstPlayer ? game.player2 : game.player1;
 		frame = new BattleshipBoardFrame(BattleshipGame.gridSize,
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize,
-				(x1, y1) -> game.board1.clickedCell(x1, y1, false)),
+				(x1, y1) -> leftBoard.clickedCell(x1, y1, false)),
 			(x, y, buttonsize) -> new BattleshipBoardCell(x, y, buttonsize,
-				(x1, y1) -> game.board2.clickedCell(x1, y1, true)));
-		frame.setLeftName(game.player1.getName() + " (" + game.player1.getScore() + ")");
-		frame.setRightName(game.player2.getName() + " (" + game.player2.getScore() + ")");
+				(x1, y1) -> rightBoard.clickedCell(x1, y1, true)));
+		frame.setLeftName(leftPlayer.getName() + " (" + leftPlayer.getScore() + ")");
+		frame.setRightName(rightPlayer.getName() + " (" + rightPlayer.getScore() + ")");
 		frame.addGameStartedListener(game::startGame);
 		frame.addGameResettedListener(game::resetGame);
+		game.addGameReadyChangedListener(frame.getShipPicker());
 		game.board1.addObserver(this::cellUpdated);
 		game.board2.addObserver(this::cellUpdated);
 	}
@@ -84,8 +88,10 @@ public class UserInterfaceController implements BattleshipInput {
 	}
 
 	public void cellUpdated(int x, int y) {
-		BattleshipCell cellA = game.board1.getCell(x, y);
-		BattleshipCell cellB = game.board2.getCell(x, y);
+		BattleshipBoard leftBoard = isFirstPlayer ? game.board1 : game.board2;
+		BattleshipBoard rightBoard = isFirstPlayer ? game.board2 : game.board1;
+		BattleshipCell cellA = leftBoard.getCell(x, y);
+		BattleshipCell cellB = rightBoard.getCell(x, y);
 		BattleshipBoardCell targetA = (BattleshipBoardCell) frame.left.getCell(x, y);
 		BattleshipBoardCell targetB = (BattleshipBoardCell) frame.right.getCell(x, y);
 		targetA.setColor(calculateCellColor(cellA, false));
@@ -103,8 +109,10 @@ public class UserInterfaceController implements BattleshipInput {
 
 	@Override
 	public void updateScore() {
-		frame.setLeftName(game.player1.getName() + " (" + game.player1.getScore() + ")");
-		frame.setRightName(game.player2.getName() + " (" + game.player2.getScore() + ")");
+		Player leftPlayer = isFirstPlayer ? game.player1 : game.player2;
+		Player rightPlayer = isFirstPlayer ? game.player2 : game.player1;
+		frame.setLeftName(leftPlayer.getName() + " (" + leftPlayer.getScore() + ")");
+		frame.setRightName(rightPlayer.getName() + " (" + rightPlayer.getScore() + ")");
 	}
 
 	@Override
@@ -121,7 +129,7 @@ public class UserInterfaceController implements BattleshipInput {
 		return name;
 	}
 
-	public StrategyBuilder askStrategy() {
+	public void askStrategy() {
 		int key = Integer.parseInt(props.getProperty("strategy", "0"));
 		StrategyBuilder fac = (StrategyBuilder) JOptionPane.showInputDialog(null,
 			"Which strategy for the AI do you want to use?", "Choose an AI Strategy",
@@ -131,7 +139,7 @@ public class UserInterfaceController implements BattleshipInput {
 			props.setProperty("strategy", key + "");
 			save();
 		}
-		return fac == null ? RandomStrategy.builder : fac;
+		strategy = fac == null ? RandomStrategy.builder : fac;
 	}
 
 	private void save() {

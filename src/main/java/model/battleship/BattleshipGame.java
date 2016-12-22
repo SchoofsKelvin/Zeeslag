@@ -1,30 +1,51 @@
 package model.battleship;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import exception.DomainException;
 import model.Player;
 import model.battleship.ai.AI;
+import model.listener.GameReadyChangedListener;
 
 public class BattleshipGame {
 
-	public final static int			gridSize	= 10;
+	public final static int					gridSize	= 10;
 
-	public final Player				player1, player2;
-	public final BattleshipBoard	board1, board2;
-	private BattleshipInput			input;
+	public final Player						player1, player2;
+	public final BattleshipBoard			board1, board2;
+	private BattleshipInput					input1, input2;
+	private boolean							ready1, ready2;
 
-	private TurnState				turn		= TurnState.Starting;
+	private TurnState						turn		= TurnState.Starting;
+
+	private List<GameReadyChangedListener>	listeners	= new ArrayList<>();
 
 	public BattleshipGame(Player player) throws DomainException {
-		this.player1 = player;
-		this.player2 = new AI();
+		this(player, new AI());
+	}
+
+	public BattleshipGame(Player player1, Player player2) {
+		this.player1 = player1;
+		this.player2 = player2;
 		board1 = new BattleshipBoard(this, player1);
 		board2 = new BattleshipBoard(this, player2);
 	}
 
 	public void setInput(BattleshipInput input) {
-		this.input = input;
+		this.input1 = input;
+		this.input2 = BattleshipInput.empty;
+	}
+
+	public void setInput(BattleshipInput input1, BattleshipInput input2) {
+		this.input1 = input1;
+		this.input2 = input2;
+	}
+
+	private BattleshipInput getInput(Player player) {
+		return player == player1 ? input1 : input2;
 	}
 
 	public Player getActivePlayer() {
@@ -60,7 +81,8 @@ public class BattleshipGame {
 		cell.setShot(true);
 		if (cell.hasBoat()) {
 			getInActivePlayer().addDestroyedCell();
-			input.updateScore();
+			input1.updateScore();
+			input2.updateScore();
 		}
 		board.fireCellUpdated(x, y);
 		turn = turn == TurnState.Player1 ? TurnState.Player2 : TurnState.Player1;
@@ -99,6 +121,7 @@ public class BattleshipGame {
 	}
 
 	public void placeBoat(Player player, BattleshipCell cell) {
+		BattleshipInput input = getInput(player);
 		if (input.isFinishedPickingBoats()) return;
 		Boat boat = input.getPickedBoat();
 		System.out.println(boat);
@@ -107,10 +130,35 @@ public class BattleshipGame {
 		if ( !board.canPlaceBoat(boat, horizontal, cell)) return;
 		board.placeBoat(boat, horizontal, cell);
 		input.removePickableBoat(boat);
+		if (input.isFinishedPickingBoats()) {
+			setReady(player, true);
+		}
+	}
+
+	private void setReady(Player player, boolean ready) {
+		if (player == player1) {
+			ready1 = ready;
+		} else {
+			ready2 = ready;
+		}
+		fireGameReadyChanged();
+	}
+
+	private void fireGameReadyChanged() {
+		for (GameReadyChangedListener listener : listeners) {
+			listener.gameReadyChanged(ready1, ready2);
+		}
+	}
+
+	public void addGameReadyChangedListener(GameReadyChangedListener listener) {
+		listeners.add(listener);
 	}
 
 	public void startGame() {
 		turn = TurnState.Player1;
+		ready1 = false;
+		ready2 = false;
+		fireGameReadyChanged();
 	}
 
 	public void resetGame() {
@@ -119,11 +167,16 @@ public class BattleshipGame {
 		board2.resetBoard(gridSize);
 		player1.setDestroyedCells(0);
 		player2.setDestroyedCells(0);
+		ready1 = false;
+		ready2 = false;
 		if (player2 instanceof AI) {
 			((AI) player2).placeBoats(board2);
-			((AI) player2).setStrategy(input.createStrategy());
+			((AI) player2).setStrategy(input1.createStrategy());
+			setReady(player2, true);
 		}
-		input.reset();
+		input1.reset();
+		input2.reset();
+		fireGameReadyChanged();
 	}
 
 }
