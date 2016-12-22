@@ -86,4 +86,10 @@ public class BattleshipBoard extends Board {
 		return true;
 	}
 
+	@Override
+	public void resetBoard(int gridSize) {
+		super.resetBoard(gridSize);
+		boats = new PlacedBoat[5];
+	}
+
 }
