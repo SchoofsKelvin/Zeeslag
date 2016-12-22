@@ -3,12 +3,12 @@ package model;
 import java.util.ArrayList;
 
 import exception.DomainException;
-import model.listener.CellUpdatedObserver;
+import model.listener.CellUpdatedListener;
 
 public abstract class Board {
 
 	private Cell[][]						cells;
-	private ArrayList<CellUpdatedObserver>	observers	= new ArrayList<>();
+	private ArrayList<CellUpdatedListener>	observers	= new ArrayList<>();
 
 	public void resetBoard(int gridSize) {
 		cells = new Cell[gridSize][gridSize];
@@ -31,16 +31,16 @@ public abstract class Board {
 
 	protected abstract Cell createCell(int x, int y);
 
-	public void addObserver(CellUpdatedObserver observer) {
+	public void addObserver(CellUpdatedListener observer) {
 		observers.add(observer);
 	}
 
-	public void removeObserver(CellUpdatedObserver observer) {
+	public void removeObserver(CellUpdatedListener observer) {
 		observers.remove(observer);
 	}
 
 	public void fireCellUpdated(int x, int y) {
-		for (CellUpdatedObserver observer : observers) {
+		for (CellUpdatedListener observer : observers) {
 			observer.cellUpdated(x, y);
 		}
 	}
