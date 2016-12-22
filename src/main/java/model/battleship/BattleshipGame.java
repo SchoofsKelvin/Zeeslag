@@ -86,8 +86,8 @@ public class BattleshipGame {
 
 	private void playerWon(Player player) {
 		turn = TurnState.Finished;
-		JOptionPane.showMessageDialog(null, "Game over!\n" + player.getName() + " won met "
-			+ player.getScore() + " punten...");
+		JOptionPane.showMessageDialog(null, "Game over!\n" + player.getName() + " won with "
+			+ player.getScore() + " points...");
 	}
 
 	public TurnState getTurn() {
