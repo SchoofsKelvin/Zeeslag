@@ -10,7 +10,7 @@ public class BattleshipBoard extends Board {
 
 	public final BattleshipGame	game;
 	public final Player			player;
-	private final PlacedBoat[]	boats	= new PlacedBoat[5];
+	private PlacedBoat[]	boats	= new PlacedBoat[5];
 
 	public BattleshipBoard(BattleshipGame game, Player player) {
 		this.game = game;
