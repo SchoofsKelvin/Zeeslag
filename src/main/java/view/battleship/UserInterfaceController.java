@@ -15,8 +15,9 @@ import model.battleship.ai.FollowUpStrategy;
 import model.battleship.ai.RandomStrategy;
 import model.battleship.ai.Strategy;
 import model.battleship.ai.Strategy.StrategyBuilder;
+import model.listener.CellUpdatedListener;
 
-public class UserInterfaceController implements BattleshipInput {
+public class UserInterfaceController implements BattleshipInput, CellUpdatedListener {
 
 	private BattleshipGame						game;
 	private BattleshipBoardFrame				frame;
@@ -56,8 +57,8 @@ public class UserInterfaceController implements BattleshipInput {
 		frame.addGameStartedListener(game::startGame);
 		frame.addGameResettedListener(game::resetGame);
 		game.addGameReadyChangedListener(frame.getShipPicker());
-		game.board1.addObserver(this::cellUpdated);
-		game.board2.addObserver(this::cellUpdated);
+		game.board1.addObserver(this);
+		game.board2.addObserver(this);
 	}
 
 	@Override
@@ -87,6 +88,7 @@ public class UserInterfaceController implements BattleshipInput {
 		updateScore();
 	}
 
+	@Override
 	public void cellUpdated(int x, int y) {
 		BattleshipBoard leftBoard = isFirstPlayer ? game.board1 : game.board2;
 		BattleshipBoard rightBoard = isFirstPlayer ? game.board2 : game.board1;
