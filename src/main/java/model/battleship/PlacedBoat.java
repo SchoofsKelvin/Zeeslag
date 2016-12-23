@@ -1,5 +1,8 @@
 package model.battleship;
-
+/**
+ * @author Thomas Goris, Surendra Sapkota
+ *
+ */
 public class PlacedBoat {
 
 	public final int				x, y;

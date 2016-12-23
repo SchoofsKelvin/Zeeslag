@@ -9,7 +9,10 @@ import exception.DomainException;
 import model.Player;
 import model.battleship.ai.AI;
 import model.listener.GameReadyChangedListener;
-
+/**
+ * @author Daan Adams, Thomas Goris, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class BattleshipGame {
 
 	public final static int					gridSize	= 10;

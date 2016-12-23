@@ -5,7 +5,10 @@ import model.Board;
 import model.Cell;
 import model.Player;
 import model.battleship.BattleshipGame.TurnState;
-
+/**
+ * @author Daan Adams, Thomas Goris, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class BattleshipBoard extends Board {
 
 	public final BattleshipGame	game;

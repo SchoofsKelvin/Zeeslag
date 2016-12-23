@@ -1,5 +1,8 @@
 package model.battleship;
-
+/**
+ * @author Kelvin Schoofs
+ *
+ */
 public enum BattleshipCellState {
 
 	EMPTY(true, false), SHOT(false, false), BOAT(true, true), HIT(false, true);

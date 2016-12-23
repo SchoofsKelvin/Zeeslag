@@ -1,7 +1,10 @@
 package model.battleship;
 
 import model.Cell;
-
+/**
+ * @author Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class BattleshipCell extends Cell {
 
 	private BattleshipCellState	state	= BattleshipCellState.EMPTY;

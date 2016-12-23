@@ -1,5 +1,8 @@
 package model.battleship;
-
+/**
+ * @author Daan Adams, Kelvin Schoofs
+ *
+ */
 public enum Boat {
 
 	AircraftCarrier(5, "Aircraft Carrier", 1),

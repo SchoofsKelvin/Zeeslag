@@ -1,7 +1,10 @@
 package model.battleship;
 
 import model.battleship.ai.Strategy;
-
+/**
+ * @author Thomas Goris, Kelvin Schoofs
+ *
+ */
 public interface BattleshipInput {
 
 	public final BattleshipInput empty = new BattleshipInput() {
