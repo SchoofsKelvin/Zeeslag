@@ -14,6 +14,10 @@ import static org.mockito.MockitoAnnotations.initMocks;
 import model.Cell;
 import model.Player;
 
+/**
+ * @author Daan Adams, Thomas Goris, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class BattleshipBoardTest {
 
 	private BattleshipCell	valid, unvalid;

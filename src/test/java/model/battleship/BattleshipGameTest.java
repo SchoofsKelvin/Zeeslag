@@ -12,6 +12,10 @@ import model.Player;
 import model.battleship.BattleshipGame.TurnState;
 import model.battleship.ai.RandomStrategy;
 
+/**
+ * @author Daan Adams, Thomas Goris
+ *
+ */
 public class BattleshipGameTest {
 
 	private int				cell;
