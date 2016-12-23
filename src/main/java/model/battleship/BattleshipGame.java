@@ -124,7 +124,6 @@ public class BattleshipGame {
 		BattleshipInput input = getInput(player);
 		if (input.isFinishedPickingBoats()) return;
 		Boat boat = input.getPickedBoat();
-		System.out.println(boat);
 		boolean horizontal = input.isRotationHorizontal();
 		BattleshipBoard board = player.equals(player1) ? board1 : board2;
 		if ( !board.canPlaceBoat(boat, horizontal, cell)) return;

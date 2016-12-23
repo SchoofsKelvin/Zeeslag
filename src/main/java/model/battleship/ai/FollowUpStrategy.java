@@ -22,7 +22,6 @@ public class FollowUpStrategy extends RandomStrategy {
 
 	@Override
 	public void doTurn(BattleshipGame game) {
-		System.out.println();
 		BattleshipBoard board = game.board1;
 		if (goodHit != null) {
 			boolean done = goodHit.doTurn(board);
