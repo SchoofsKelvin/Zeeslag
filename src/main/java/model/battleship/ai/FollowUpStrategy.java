@@ -5,7 +5,10 @@ import java.util.Random;
 import model.battleship.BattleshipBoard;
 import model.battleship.BattleshipCell;
 import model.battleship.BattleshipGame;
-
+/**
+ * @author Daan Adams, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class FollowUpStrategy extends RandomStrategy {
 
 	public static final StrategyBuilder	builder	= new StrategyBuilder("Follow up Strategy") {

@@ -1,5 +1,8 @@
 package model.battleship.ai;
-
+/**
+ * @author Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 import model.battleship.BattleshipBoard;
 import model.battleship.BattleshipGame;
 

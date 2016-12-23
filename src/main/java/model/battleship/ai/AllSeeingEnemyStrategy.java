@@ -3,7 +3,10 @@ package model.battleship.ai;
 import model.battleship.BattleshipBoard;
 import model.battleship.BattleshipCell;
 import model.battleship.BattleshipGame;
-
+/**
+ * @author Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class AllSeeingEnemyStrategy extends RandomStrategy {
 
 	public static final StrategyBuilder builder = new StrategyBuilder("All Seeing Enemy Strategy") {

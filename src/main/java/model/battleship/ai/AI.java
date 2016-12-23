@@ -4,7 +4,10 @@ import exception.DomainException;
 import model.Player;
 import model.battleship.BattleshipBoard;
 import model.battleship.BattleshipGame;
-
+/**
+ * @author Thomas Goris, Kelvin Schoofs
+ *
+ */
 public class AI extends Player {
 
 	private Strategy strategy = new RandomStrategy();

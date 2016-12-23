@@ -5,7 +5,10 @@ import java.util.Random;
 import model.battleship.BattleshipBoard;
 import model.battleship.BattleshipGame;
 import model.battleship.Boat;
-
+/**
+ * @author Daan Adams, Thomas Goris, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class RandomStrategy implements Strategy {
 
 	public static final StrategyBuilder builder = new StrategyBuilder("Random Strategy") {

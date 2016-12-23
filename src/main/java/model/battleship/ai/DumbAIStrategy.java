@@ -1,7 +1,10 @@
 package model.battleship.ai;
 
 import model.battleship.BattleshipGame;
-
+/**
+ * @author Kelvin Schoofs
+ *
+ */
 public class DumbAIStrategy extends RandomStrategy {
 
 	public static final StrategyBuilder	builder	= new StrategyBuilder("Dumb AI") {
