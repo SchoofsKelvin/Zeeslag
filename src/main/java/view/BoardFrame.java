@@ -3,7 +3,10 @@ package view;
 import java.awt.GridBagLayout;
 
 import javax.swing.JFrame;
-
+/**
+ * @author Daan Adams, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class BoardFrame extends JFrame {
 
 	private static final long	serialVersionUID	= 8506260212595300722L;
@@ -47,7 +50,6 @@ public class BoardFrame extends JFrame {
 	}
 
 	/**
-	 * @author Surendra
 	 *         Using setSize() you can give the size of frame you
 	 *         want but if you use pack(), it will automatically change the size
 	 *         of the

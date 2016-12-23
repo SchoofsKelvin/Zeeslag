@@ -9,7 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import exception.DomainException;
-
+/**
+ * @author Daan Adams, Thomas Goris, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class BoardPanel extends JPanel {
 
 	private static final long	serialVersionUID	= 1L;

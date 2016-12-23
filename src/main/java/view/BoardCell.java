@@ -3,7 +3,10 @@ package view;
 import java.awt.Dimension;
 
 import javax.swing.JButton;
-
+/**
+ * @author Thomas Goris, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class BoardCell extends JButton {
 
 	private static final long	serialVersionUID	= 1L;

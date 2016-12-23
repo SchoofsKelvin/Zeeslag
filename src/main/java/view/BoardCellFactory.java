@@ -1,5 +1,8 @@
 package view;
-
+/**
+ * @author Kelvin Schoofs
+ *
+ */
 public interface BoardCellFactory {
 
 	public BoardCell createCell(int x, int y, int buttonsize);
