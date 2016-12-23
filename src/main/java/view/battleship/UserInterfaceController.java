@@ -10,10 +10,7 @@ import javax.swing.JOptionPane;
 
 import model.Player;
 import model.battleship.*;
-import model.battleship.ai.AllSeeingEnemyStrategy;
-import model.battleship.ai.FollowUpStrategy;
-import model.battleship.ai.RandomStrategy;
-import model.battleship.ai.Strategy;
+import model.battleship.ai.*;
 import model.battleship.ai.Strategy.StrategyBuilder;
 import model.listener.CellUpdatedListener;
 
@@ -41,6 +38,7 @@ public class UserInterfaceController implements BattleshipInput, CellUpdatedList
 		addStrategyFactory(RandomStrategy.builder);
 		addStrategyFactory(FollowUpStrategy.builder);
 		addStrategyFactory(AllSeeingEnemyStrategy.builder);
+		addStrategyFactory(DumbAIStrategy.builder);
 		this.game = game;
 		this.isFirstPlayer = isFirstPlayer;
 		BattleshipBoard leftBoard = isFirstPlayer ? game.board1 : game.board2;
