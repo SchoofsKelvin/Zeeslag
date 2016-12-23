@@ -1,7 +1,10 @@
 package model;
 
 import exception.DomainException;
-
+/**
+ * @author Daan Adams, Thomas Goris, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class Player {
 
 	private String		name;

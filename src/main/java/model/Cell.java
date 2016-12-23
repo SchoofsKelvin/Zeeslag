@@ -1,5 +1,8 @@
 package model;
-
+/**
+ * @author Daan Adams, Thomas Goris, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class Cell {
 
 	public final int x, y;

@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 import exception.DomainException;
 import model.listener.CellUpdatedListener;
-
+/**
+ * @author Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public abstract class Board {
 
 	private Cell[][]						cells;
