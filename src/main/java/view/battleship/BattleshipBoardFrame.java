@@ -7,7 +7,10 @@ import model.listener.GameResettedListener;
 import model.listener.GameStartedListener;
 import view.BoardCellFactory;
 import view.BoardFrame;
-
+/**
+ * @author Thomas Goris, Kelvin Schoofs
+ *
+ */
 public final class BattleshipBoardFrame extends BoardFrame {
 
 	private static final long			serialVersionUID	= -2458982237956517265L;

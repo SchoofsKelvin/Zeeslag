@@ -5,7 +5,10 @@ import java.awt.event.ActionListener;
 
 import model.listener.CellClickedListener;
 import view.BoardCell;
-
+/**
+ * @author Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class BattleshipBoardCell extends BoardCell implements ActionListener {
 
 	private static final long			serialVersionUID	= -3288098740775513486L;

@@ -13,7 +13,10 @@ import model.battleship.*;
 import model.battleship.ai.*;
 import model.battleship.ai.Strategy.StrategyBuilder;
 import model.listener.CellUpdatedListener;
-
+/**
+ * @author Daan Adams, Thomas Goris, Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class UserInterfaceController implements BattleshipInput, CellUpdatedListener {
 
 	private BattleshipGame						game;

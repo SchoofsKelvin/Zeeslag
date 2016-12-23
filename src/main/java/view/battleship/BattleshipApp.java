@@ -5,6 +5,10 @@ import javax.swing.JOptionPane;
 import model.Player;
 import model.battleship.BattleshipGame;
 
+/**
+ * @author Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public class BattleshipApp {
 
 	public static void main(String[] args) {

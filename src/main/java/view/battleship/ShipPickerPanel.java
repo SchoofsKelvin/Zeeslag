@@ -7,7 +7,10 @@ import javax.swing.*;
 
 import model.battleship.Boat;
 import model.listener.GameReadyChangedListener;
-
+/**
+ * @author Thomas Goris, Kelvin Schoofs
+ *
+ */
 public class ShipPickerPanel extends JPanel implements GameReadyChangedListener {
 
 	private static final long				serialVersionUID	= 1L;

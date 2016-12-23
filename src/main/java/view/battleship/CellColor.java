@@ -1,7 +1,10 @@
 package view.battleship;
 
 import java.awt.Color;
-
+/**
+ * @author Kelvin Schoofs, Surendra Sapkota
+ *
+ */
 public enum CellColor {
 	Empty(new Color(100, 197, 255)),
 	Boat(Color.WHITE),
